@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Satu</string>
+    <string name="akun">Akun</string>
+    <string name="akun_profil">Akun Profil</string>
+    <string name="nama_akun">CHARINA LORENZA</string>
+    <string name="email">charinacutezabiez@gmail.com</string>
+    <string name="informasi_rekening_dan_kartu">Informasi Rekening dan Kartu</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="ubah_alamat_email">Ubah Alamat Email</string>
+    <string name="ubah_password">Ubah Password</string>
+    <string name="ubah_pin">Ubah Pin</string>
+    <string name="menu_pintasan">Menu Pintasan</string>
+    <string name="bantuan">Bantuan</string>
+    <string name="live_chat">Live Chat</string>
+    <string name="kontak_kami">Kontak Kami</string>
+    <string name="syarat_ketentuan">Syarat dan Ketentuan</string>
+    <string name="kebijakan_privasi">Kebijakan Privasi</string>
+    <string name="informasi">Informasi</string>
+    <string name="panduan_pengguna">Panduan Pengguna</string>
+    <string name="info_kurs">Info Kurs</string>
+    <string name="info_saham">Info Saham</string>
+    <string name="lokasi_atm_bca">Lokasi ATM BCA</string>
+    <string name="lokasi_kantor_bca">Lokasi Kantor BCA</string>
+    <string name="versi_aplikasi">Versi Aplikasi</string>
+    <string name="slogan">SemuaPakaiSatu</string>
+    <string name="log_out">Log Out</string>
+
 </resources>
