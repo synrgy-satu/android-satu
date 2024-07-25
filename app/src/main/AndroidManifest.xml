@@ -13,6 +13,42 @@
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
         <activity
+            android:name=".ui.repeatedUser.activities.RepeatedLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.login.forgotpasword.loader.LoaderForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.login.forgotpasword.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.login.loader.LoginSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.login.email.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.loader.RegisterSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.pin.PinRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.password.RegisterPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.loader.LoaderRegisterAccount"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.email.RegisterEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.loader.LoaderRegisterRekeningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.newUser.activities.register.rekening.RegisterRekeningAcitivty"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
