@@ -417,7 +417,6 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:drawableEnd="@drawable/ic_next"
-                        android:drawableEnd="@drawable/ic_next"
                         android:drawableTint="@color/black"
                         android:textSize="14sp"
                         android:layout_weight="7"
