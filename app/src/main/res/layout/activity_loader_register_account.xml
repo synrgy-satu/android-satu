@@ -31,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mohon Periksa Email Anda dan Lanjutkan Langkah Ubah Kata Sandi"
+        android:contentDescription="Mohon Periksa Email Anda dan Lanjutkan Langkah Ubah Kata Sandi"
         android:paddingHorizontal="32dp"
         android:textAlignment="center"
         android:fontFamily="@font/opensans_semibold"
@@ -46,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kembali"
+        android:contentDescription="Tombol Kembali"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_text1"
@@ -55,6 +57,7 @@
         android:fontFamily="@font/opensans_semibold"
         android:textSize="16sp"
         android:padding="16dp"
+        android:background="@drawable/shape_button"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
 
