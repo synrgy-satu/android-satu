@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.newUser.activities.register.rekening.RegisterRekeningAcitivty"
+    tools:context=".ui.activity.register.rekening.RegisterRekeningAcitivty"
     android:background="@color/ColorPrimary">
 
     <com.google.android.material.appbar.AppBarLayout

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/ColorPrimary"
-    tools:context=".ui.repeatedUser.fragments.FirstScreenFragment">
+    tools:context=".ui.fragments.screen.FirstScreenFragment">
 
 
     <ImageView

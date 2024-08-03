@@ -13,43 +13,19 @@
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
         <activity
-            android:name=".ui.repeatedUser.activities.RepeatedLoginActivity"
+            android:name=".ui.activity.notification.notification"
             android:exported="false" />
         <activity
-            android:name=".ui.newUser.activities.login.forgotpasword.loader.LoaderForgotPasswordActivity"
+            android:name=".ui.activity.transfer.addNewNumberRekening"
             android:exported="false" />
         <activity
-            android:name=".ui.newUser.activities.login.forgotpasword.ForgotPasswordActivity"
+            android:name=".ui.activity.construction.undonePage"
             android:exported="false" />
         <activity
-            android:name=".ui.newUser.activities.login.loader.LoginSuccessActivity"
+            android:name=".ui.activity.transfer.transferReceipt"
             android:exported="false" />
         <activity
-            android:name=".ui.newUser.activities.login.email.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.loader.RegisterSuccessActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.pin.PinRegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.password.RegisterPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.loader.LoaderRegisterAccount"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.email.RegisterEmailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.loader.LoaderRegisterRekeningActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.newUser.activities.register.rekening.RegisterRekeningAcitivty"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.transfer.verificationTransaction"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,6 +33,57 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activity.transfer.confirmationTransfer"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.transfer.transferNow"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.transfer.transferRekBca"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.transfer.selectDestinationTransfer"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.login.RepeatedLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.login.forgotpasword.loader.LoaderForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.login.forgotpasword.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.login.loader.LoginSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.login.email.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.loader.RegisterSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.pin.PinRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.password.RegisterPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.loader.LoaderRegisterAccount"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.email.RegisterEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.loader.LoaderRegisterRekeningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.register.rekening.RegisterRekeningAcitivty"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

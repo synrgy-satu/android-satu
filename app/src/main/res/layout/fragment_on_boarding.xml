@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/ColorPrimary"
-    tools:context=".ui.newUser.fragments.onboarding.OnBoardingFragment">
+    tools:context=".ui.fragments.onboarding.OnBoardingFragment">
 
     <ImageView
         android:id="@+id/iv_decorative"

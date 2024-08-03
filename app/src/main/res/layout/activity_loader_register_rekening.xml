@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/white"
-    tools:context=".ui.newUser.activities.register.loader.LoaderRegisterRekeningActivity">
+    tools:context=".ui.activity.register.loader.LoaderRegisterRekeningActivity">
 
     <ImageView
         android:id="@+id/iv_logo"
