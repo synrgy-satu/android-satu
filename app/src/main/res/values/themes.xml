@@ -2,7 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Satu" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/ColorPrimary</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+    </style>
+
+    <style name="ToolbarTitleText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/opensans_bold</item>
     </style>
 
     <style name="Theme.Satu" parent="Base.Theme.Satu" />

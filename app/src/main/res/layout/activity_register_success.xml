@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ColorPrimary"
+    tools:context=".ui.activity.register.loader.RegisterSuccessActivity">
+
+    <ImageView
+        android:id="@+id/iv_decorative"
+        android:layout_width="268dp"
+        android:layout_height="347dp"
+        android:src="@drawable/img_decorative_mask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:text="Pendaftaran Berhasil"
+        android:contentDescription="Pendaftaran Berhasil"
+        android:textColor="@color/white"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:paddingRight="120dp"
+        android:text="Silahkan masuk untuk melanjutkan"
+        android:contentDescription="Silahkan masuk untuk melanjutkan"
+        android:fontFamily="@font/opensans_bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+
+    <Button
+        android:id="@+id/btn_regis_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Masuk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_text1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/ColorPrimary"
+        android:fontFamily="@font/opensans_semibold"
+        android:contentDescription="tombol masuk"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
