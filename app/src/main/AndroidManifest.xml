@@ -13,19 +13,25 @@
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.newuser.login.LoginSuccessActivity"
+            android:name=".ui.activities.auth.repeateduser.RepeadLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.newuser.login.LoginEmailActivity"
+            android:name=".ui.activities.auth.repeateduser.onboarding.OnBoardingRepeadUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.newuser.register.RegisterSuccessActivity"
+            android:name=".ui.activities.auth.newuser.login.LoginSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.newuser.register.RegisterPinActivity"
+            android:name=".ui.activities.auth.newuser.login.LoginEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.newuser.register.RegisterPasswordActivity"
+            android:name=".ui.activities.auth.newuser.register.RegisterSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.auth.newuser.register.RegisterPinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.auth.newuser.register.RegisterPasswordActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,13 +40,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activities.newuser.register.RegisterEmailActivity"
+            android:name=".ui.activities.auth.newuser.register.RegisterEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.newuser.register.RegisterRekeningActivity"
+            android:name=".ui.activities.auth.newuser.register.RegisterRekeningActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.newuser.onboarding.OnBoardingNewUserActivity"
+            android:name=".ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.splash.SplashScreenActivity"

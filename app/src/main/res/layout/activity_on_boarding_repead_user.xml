@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/colorPrimary"
-    tools:context=".ui.activities.auth.newuser.register.RegisterSuccessActivity">
+    tools:context=".ui.activities.auth.repeateduser.onboarding.OnBoardingRepeadUserActivity">
 
 
     <ImageView
@@ -18,6 +18,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="145dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401" />
 
     <TextView
         android:id="@+id/tv_welcome"
@@ -25,15 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
-        android:text="Pendaftaran Berhasil"
-        android:contentDescription="Pendaftaran Berhasil"
+        android:text="@string/welcome"
+        android:contentDescription="@string/welcome"
         android:textColor="@color/white"
         android:fontFamily="@font/opensans_bold"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
     <TextView
         android:id="@+id/tv_text1"
@@ -42,8 +52,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
         android:paddingRight="120dp"
-        android:text="Silahkan masuk untuk melanjutkan"
-        android:contentDescription="Silahkan masuk untuk melanjutkan"
+        android:text="@string/tagline"
+        android:contentDescription="@string/tagline"
         android:fontFamily="@font/opensans_bold"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -52,22 +62,52 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
     <Button
-        android:id="@+id/btn_regis_success"
+        android:id="@+id/btn_login_onboarding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Masuk"
+        android:text="@string/label_button_masuk"
+        android:contentDescription="@string/tombol_button_masuk"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_text1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="64dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_text2"
+        android:layout_marginTop="100dp"
         android:backgroundTint="@color/white"
         android:textColor="@color/ColorPrimary"
         android:fontFamily="@font/opensans_semibold"
-        android:contentDescription="tombol masuk"
-        android:textSize="16sp"
         android:padding="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="PT. Satu Solusi Utama Tbk."
+        android:contentDescription="PT. Satu Solusi Utama Tbk."
+        android:fontFamily="@font/opensans_regular"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login_onboarding"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v.1.0.1"
+        android:contentDescription="versi 1.0.1"
+        android:fontFamily="@font/opensans_regular"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_text2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

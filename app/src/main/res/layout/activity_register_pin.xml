@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/colorPrimary"
-    tools:context=".ui.activities.newuser.register.RegisterPinActivity">
+    tools:context=".ui.activities.auth.newuser.register.RegisterPinActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"

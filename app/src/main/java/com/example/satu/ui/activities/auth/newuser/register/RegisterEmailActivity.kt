@@ -1,4 +1,4 @@
-package com.example.satu.ui.activities.newuser.register
+package com.example.satu.ui.activities.auth.newuser.register
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
