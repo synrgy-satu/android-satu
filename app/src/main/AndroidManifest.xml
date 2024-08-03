@@ -13,10 +13,13 @@
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.newuser.onboarding.OnBoardingNewUserActivity"
+            android:name=".ui.activities.newuser.register.RegisterSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.splash.SplashScreenActivity"
+            android:name=".ui.activities.newuser.register.RegisterPinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.newuser.register.RegisterPasswordActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +28,20 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.activities.newuser.register.RegisterEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.newuser.register.RegisterRekeningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.newuser.onboarding.OnBoardingNewUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.splash.SplashScreenActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
