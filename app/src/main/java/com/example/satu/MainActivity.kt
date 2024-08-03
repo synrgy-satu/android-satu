@@ -1,7 +1,9 @@
 package com.example.satu
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,6 +36,18 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        val beranda = binding.bottomNavigation.menu.findItem(R.id.beranda)
+        val tabungan = binding.bottomNavigation.menu.findItem(R.id.tabungan)
+        val qris = binding.bottomNavigation.menu.findItem(R.id.qris)
+        val notifikasi = binding.bottomNavigation.menu.findItem(R.id.notifikasi)
+        val akun = binding.bottomNavigation.menu.findItem(R.id.akun)
+
+        beranda.contentDescription = getString(R.string.beranda_description)
+        tabungan.contentDescription = getString(R.string.tabungan_description)
+        qris.contentDescription = getString(R.string.qris_description)
+        notifikasi.contentDescription = getString(R.string.notifikasi_description)
+        akun.contentDescription = getString(R.string.akun_description)
     }
 
     private fun loadFragment(fragment: Fragment) {
