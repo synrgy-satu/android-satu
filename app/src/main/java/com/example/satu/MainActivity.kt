@@ -5,16 +5,40 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.example.satu.databinding.ActivityMainBinding
+import com.example.satu.ui.fragment.home.HomeFragment
+import com.example.satu.ui.fragment.notification.NotifikasiFragment
+import com.example.satu.ui.fragment.profile.ProfileFragment
+import com.example.satu.ui.fragment.tabungan.TabunganFragment
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        loadFragment(HomeFragment())
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.beranda -> loadFragment(HomeFragment())
+                R.id.tabungan -> loadFragment(TabunganFragment())
+                R.id.notifikasi-> loadFragment(NotifikasiFragment())
+                R.id.akun -> loadFragment(ProfileFragment())
+            }
+            true
         }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.commit()
     }
 }
