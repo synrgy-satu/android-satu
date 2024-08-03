@@ -27,9 +27,9 @@
 
     <ImageView
         android:id="@+id/iv_logoback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_logotype_white"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:src="@drawable/logo"
         app:layout_constraintStart_toEndOf="@id/appBarLayout"
         app:layout_constraintBottom_toBottomOf="@id/appBarLayout"
         app:layout_constraintTop_toTopOf="@id/appBarLayout"/>
@@ -96,12 +96,13 @@
         android:id="@+id/radiusRectangle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/img_rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_decorative">
+        app:layout_constraintTop_toBottomOf="@id/tv_text1">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_text4"
@@ -146,24 +147,29 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"/>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_input_pin_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukan PIN"
             android:contentDescription="Edit Teks Masukan PIN"
-            android:background="@drawable/custom_input"
-            app:layout_constraintTop_toBottomOf="@id/tv_add_password"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColorHint="@color/Grey"
-            android:textSize="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
-            android:padding="16dp"
-            android:inputType="number"
-            android:ems="6"/>
+            app:passwordToggleEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_password"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <TextView
             android:id="@+id/tv_confirmation_password"
@@ -180,43 +186,51 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_confirmation_pin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Konfirmasi PIN"
             android:contentDescription="Edit Teks Konfirmasi PIN"
-            android:background="@drawable/custom_input"
-            app:layout_constraintTop_toBottomOf="@id/tv_confirmation_password"
-            app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColorHint="@color/Grey"
-            android:textSize="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
-            android:padding="16dp"
-            android:inputType="number"/>
+            app:passwordToggleEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tv_confirmation_password"
+            app:layout_constraintStart_toStartOf="parent"
+            >
 
-        <Button
-            android:id="@+id/btn_next_pin_register"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password_konfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:backgroundTint="@color/ColorPrimary"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
             android:text="Lanjut"
             android:contentDescription="Tombol Lanjut"
-            android:background="@drawable/shape_button"
-            android:fontFamily="@font/opensans_semibold"
+            app:cornerRadius="8dp"
+            android:layout_marginTop="20dp"
+            android:padding="18dp"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/et_confirmation_pin"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="?attr/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
+
 
 
 

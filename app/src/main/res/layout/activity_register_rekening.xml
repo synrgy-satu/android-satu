@@ -99,12 +99,13 @@
         android:id="@+id/radiusRectangle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/img_rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_decorative">
+        app:layout_constraintTop_toBottomOf="@id/tv_text1">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_text4"
@@ -122,17 +123,17 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_text5"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_semibold"
             android:text="Pastikan bahwa anda telah memiliki rekening tabungan SATU"
             android:contentDescription="Pastikan bahwa anda telah memiliki rekening tabungan SATU"
             android:textColor="@color/Grey"
             android:textSize="14sp"
-            android:layout_marginLeft="16dp"
-            android:paddingRight="124dp"
+            android:layout_marginHorizontal="16dp"
             app:layout_constraintTop_toBottomOf="@id/tv_text4"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/tv_number"
@@ -180,44 +181,52 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"/>
-
-        <EditText
+        <LinearLayout
             android:id="@+id/et_add_month"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bulan"
-            android:contentDescription="Edit teks masukan bulan masa aktif"
-            android:background="@drawable/custom_input"
             app:layout_constraintTop_toBottomOf="@id/tv_date"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColorHint="@color/Grey"
-            android:textSize="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="16dp"
-            android:width="140dp"
-            android:inputType="date"/>
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Bulan"
+                android:contentDescription="Edit teks masukan bulan masa aktif"
+                android:background="@drawable/custom_input"
+                android:layout_weight="1"
+                android:fontFamily="@font/opensans_semibold"
+                android:textColorHint="@color/Grey"
+                android:textSize="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:padding="16dp"
+                android:width="140dp"
+                android:inputType="date"/>
 
-        <EditText
-            android:id="@+id/et_add_year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Tahun"
-            android:contentDescription="edit teks masukan tahun masa aktif"
-            android:background="@drawable/custom_input"
-            app:layout_constraintTop_toBottomOf="@id/tv_date"
-            app:layout_constraintStart_toEndOf="@id/et_add_month"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColorHint="@color/Grey"
-            android:textSize="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="16dp"
-            android:width="140dp"
-            android:inputType="date"/>
+            <EditText
+                android:id="@+id/et_add_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Tahun"
+                android:layout_weight="1"
+                android:contentDescription="edit teks masukan tahun masa aktif"
+                android:background="@drawable/custom_input"
+                app:layout_constraintTop_toBottomOf="@id/tv_date"
+                app:layout_constraintStart_toEndOf="@id/et_add_month"
+                android:fontFamily="@font/opensans_semibold"
+                android:textColorHint="@color/Grey"
+                android:textSize="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:padding="16dp"
+                android:width="140dp"
+                android:inputType="date"/>
+
+
+        </LinearLayout>
+
 
         <CheckBox
             android:id="@+id/cb_condition"
