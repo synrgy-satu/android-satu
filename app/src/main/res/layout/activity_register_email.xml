@@ -27,9 +27,9 @@
 
     <ImageView
         android:id="@+id/iv_logoback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_logotype_white"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:src="@drawable/logo"
         app:layout_constraintStart_toEndOf="@id/appBarLayout"
         app:layout_constraintBottom_toBottomOf="@id/appBarLayout"
         app:layout_constraintTop_toTopOf="@id/appBarLayout"/>
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
         app:layout_constraintBottom_toTopOf="@id/radiusRectangle"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginLeft="20dp"/>
 
     <TextView
         android:id="@+id/tv_step"
@@ -63,7 +63,7 @@
         android:contentDescription="Langkah ke 2 dari 4 tahap"
         android:textColor="@color/ColorPrimary"
         android:textSize="16sp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
         app:layout_constraintBottom_toTopOf="@id/radiusRectangle"
         app:layout_constraintStart_toEndOf="@id/tv_welcome"/>
@@ -72,8 +72,7 @@
         android:id="@+id/tv_text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:paddingRight="120dp"
+        android:layout_marginLeft="20dp"
         android:text="Daftar Akun Untuk Melanjutkan"
         android:contentDescription="Daftar akun untuk melanjutkan"
         android:fontFamily="@font/opensans_regular"
@@ -88,7 +87,7 @@
         android:layout_width="268dp"
         android:layout_height="231dp"
         android:layout_marginEnd="4dp"
-        android:src="@drawable/img_decorative_mask_2"
+        android:src="@drawable/ic_decorative2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,6 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
+        android:padding="20dp"
         android:background="@drawable/img_rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,8 +113,7 @@
             android:contentDescription="Akun"
             android:textColor="@color/black"
             android:textSize="28sp"
-            android:layout_marginTop="32dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,8 +126,7 @@
             android:contentDescription="Masukkan Email dan Nomor Telp untuk masuk ke dalam akun M-Banking SATU"
             android:textColor="@color/Grey"
             android:textSize="14sp"
-            android:layout_marginLeft="16dp"
-            android:paddingRight="124dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_text4"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -141,29 +139,32 @@
             android:textColor="@color/black"
             android:fontFamily="@font/opensans_semibold"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_input_email_register"
+            app:layout_constraintBottom_toTopOf="@+id/et_add_email_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_text5"
-            android:layout_marginLeft="16dp"
+
             android:layout_marginTop="16dp"/>
 
-        <EditText
-            android:id="@+id/et_input_email_register"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_add_email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukan Email"
             android:contentDescription="Edit Teks Masukan Email"
-            android:background="@drawable/custom_input"
-            android:inputType="textEmailAddress"
+
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@id/tv_add_password"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColorHint="@color/Grey"
-            android:textSize="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="16dp"/>
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_confirmation_password"
@@ -174,45 +175,44 @@
             android:textColor="@color/black"
             android:fontFamily="@font/opensans_semibold"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_input_number_register_email"
+            app:layout_constraintBottom_toTopOf="@+id/et_add_password_login"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_input_email_register"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:inputType="textEmailAddress"/>
+            app:layout_constraintTop_toBottomOf="@id/et_add_email_login"
+            android:layout_marginTop="20dp" />
 
-        <EditText
-            android:id="@+id/et_input_number_register_email"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_add_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukan Nomor Telepon"
-            android:contentDescription="Edit Teks Masukan Nomor Telepon"
-            android:background="@drawable/custom_input"
+            android:contentDescription="Edit Teks Masukan Nomor telepon"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@id/tv_confirmation_password"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/opensans_semibold"
-            android:textColorHint="@color/Grey"
-            android:textSize="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:padding="16dp"
-            android:inputType="number"/>
+
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_next_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lanjut"
             android:contentDescription="Tombol Lanjut"
             app:cornerRadius="8dp"
-            android:layout_marginTop="20dp"
             android:padding="18dp"
             android:textSize="16sp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:textColor="@color/white"
-            android:layout_marginBottom="20dp"
             android:backgroundTint="?attr/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

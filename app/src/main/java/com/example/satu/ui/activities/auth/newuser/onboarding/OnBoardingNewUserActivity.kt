@@ -10,6 +10,7 @@ import com.example.satu.R
 import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
 import com.example.satu.ui.activities.auth.newuser.login.LoginEmailActivity
 import com.example.satu.ui.activities.auth.newuser.register.RegisterEmailActivity
+import com.example.satu.ui.activities.auth.newuser.register.RegisterRekeningActivity
 
 class OnBoardingNewUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOnBoardingNewUserBinding
@@ -24,7 +25,7 @@ class OnBoardingNewUserActivity : AppCompatActivity() {
             startActivity(Intent(this@OnBoardingNewUserActivity, LoginEmailActivity::class.java))
         }
         btnRegisOnboarding.setOnClickListener {
-            startActivity(Intent(this@OnBoardingNewUserActivity, RegisterEmailActivity::class.java))
+            startActivity(Intent(this@OnBoardingNewUserActivity, RegisterRekeningActivity::class.java))
         }
     }
 }
