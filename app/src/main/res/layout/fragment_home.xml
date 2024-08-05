@@ -1,14 +1,457 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/dataMainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="25dp"
+            android:layout_height="wrap_content">
 
-</FrameLayout>
+            <LinearLayout
+                android:id="@+id/navbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/logo_asli"
+                    android:contentDescription="@string/logo"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+                <ImageButton
+                    android:id="@+id/btn_help_desk"
+                    android:layout_width="27dp"
+                    android:layout_gravity="center"
+                    android:layout_height="27dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/tombol_helpdesk"
+                    android:contentDescription="tombol bantuan"/>
+
+                <ImageButton
+                    android:id="@+id/btn_keluar"
+                    android:layout_width="27dp"
+                    android:layout_gravity="center"
+                    android:layout_height="27dp"
+                    android:background="@drawable/tombol_keluar"
+                    android:contentDescription="tombol keluar"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/navbar"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selamat Datang"
+                    android:contentDescription="Selamat datang"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhamad Yazid emoney"
+                    android:contentDescription="Nama kamu"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:textColor="@color/ColorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/card_kotak"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:background="@drawable/kartu"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome"
+                >
+                <TextView
+                    android:id="@+id/tv_welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saldo Anda"
+                    android:contentDescription="Saldo Anda"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_idr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IDR."
+                        android:textStyle="bold"
+                        android:contentDescription="IDR"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/tv_nominal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*********"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:contentDescription="IDR"
+                        android:fontFamily="@font/opensans_regular"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        />
+                    <ImageButton
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/btn_lihat_saldo"
+                        android:layout_width="18dp"
+                        android:layout_gravity="center"
+                        android:layout_height="13dp"
+                        android:background="@drawable/ic_eye_lihat"
+                        android:contentDescription="tombol bantuan"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/tv_text_rekening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rekening"
+                    android:contentDescription="Rekening"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+                <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_rekening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2314712461030"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    />
+                <ImageButton
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/btn_salin_rekening"
+                    android:layout_width="18dp"
+                    android:layout_gravity="center"
+                    android:layout_height="21dp"
+                    android:background="@drawable/ic_salin"
+                    android:contentDescription="tombol bantuan"/>
+
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/iv_saver"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_saver"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <ImageView
+
+                        android:id="@+id/btn_rekening"
+                        android:layout_width="190dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/button_rekening"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/kotak_fitur_nih"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/card_kotak"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+                <LinearLayout
+                    android:id="@+id/kotak_fitur"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_text_fitur"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_retweet"/>
+                        <TextView
+                            android:id="@+id/tv_text_transfer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Transfer"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_mutasi"/>
+                        <TextView
+                            android:id="@+id/tv_text_mutasi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mutasi"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_pembayaran"/>
+                        <TextView
+                            android:id="@+id/tv_text_pembayaran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bayar"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_pembelian"/>
+                        <TextView
+                            android:id="@+id/tv_text_pembelian"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Beli"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_text_fitur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fitur"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/kotak_cart2"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/kotak_fitur"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_investasi"/>
+                        <TextView
+                            android:id="@+id/tv_text_investasi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Investasi"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_walet"/>
+                        <TextView
+                            android:id="@+id/tv_text_walet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="E-Wallet"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_tap"/>
+                        <TextView
+                            android:id="@+id/tv_text_tap"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FlashTap"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_weight="1">
+                        <ImageButton
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_kredit"/>
+                        <TextView
+                            android:id="@+id/tv_text_kredit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kredit"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans_semibold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
