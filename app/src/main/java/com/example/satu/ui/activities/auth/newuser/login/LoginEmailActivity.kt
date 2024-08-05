@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityLoginEmailBinding
 import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
+import com.example.satu.ui.activities.auth.forgotpassword.ForgotPasswordActivity
 
 class LoginEmailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginEmailBinding
@@ -43,7 +44,7 @@ class LoginEmailActivity : AppCompatActivity() {
             finish()
         }
         tvForgotPasswordLogin.setOnClickListener {
-            startActivity(Intent(this@LoginEmailActivity, LoginSuccessActivity::class.java))
+            startActivity(Intent(this@LoginEmailActivity, ForgotPasswordActivity::class.java))
         }
     }
 }

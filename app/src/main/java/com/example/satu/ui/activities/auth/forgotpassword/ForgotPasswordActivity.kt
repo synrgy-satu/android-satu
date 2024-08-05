@@ -14,6 +14,7 @@ import com.example.satu.R
 import com.example.satu.databinding.ActivityForgotpasswordBinding
 import com.example.satu.databinding.ActivityLoginEmailBinding
 import com.example.satu.ui.activities.auth.newuser.login.LoginSuccessActivity
+import com.example.satu.ui.activities.loader.LoaderForgotPasswordActivity
 
 class ForgotPasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityForgotpasswordBinding
@@ -40,7 +41,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
     }
     private fun setupClickListeners() = with(binding) {
         btnKirim.setOnClickListener {
-            startActivity(Intent(this@ForgotPasswordActivity, LoginSuccessActivity::class.java))
+            startActivity(Intent(this@ForgotPasswordActivity, LoaderForgotPasswordActivity::class.java))
         }
     }
 
