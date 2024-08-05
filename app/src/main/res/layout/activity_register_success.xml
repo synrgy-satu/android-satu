@@ -13,7 +13,7 @@
         android:id="@+id/iv_decorative"
         android:layout_width="268dp"
         android:layout_height="347dp"
-        android:src="@drawable/img_decorative_mask"
+        android:src="@drawable/ic_decorative"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -41,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
-        android:paddingRight="120dp"
         android:text="Silahkan masuk untuk melanjutkan"
         android:contentDescription="Silahkan masuk untuk melanjutkan"
         android:fontFamily="@font/opensans_bold"
@@ -52,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
     <Button
-        android:id="@+id/btn_regis_success"
+        android:id="@+id/btn_masuk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Masuk"
@@ -60,7 +59,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_text1"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="64dp"
         android:backgroundTint="@color/white"
         android:textColor="@color/ColorPrimary"
         android:fontFamily="@font/opensans_semibold"
