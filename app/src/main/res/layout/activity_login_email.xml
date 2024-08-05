@@ -206,7 +206,7 @@
             android:layout_marginTop="20dp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_next_register_password"
+            android:id="@+id/btn_lanjut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lanjut"
