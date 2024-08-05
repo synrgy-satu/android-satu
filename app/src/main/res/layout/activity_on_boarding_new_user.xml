@@ -12,10 +12,10 @@
         android:id="@+id/iv_decorative"
         android:layout_width="268dp"
         android:layout_height="347dp"
-        android:src="@drawable/img_decorative_mask"
+        android:src="@drawable/ic_decorative"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/btn_login_onboarding"/>
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_login_onboarding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,6 +78,7 @@
         android:padding="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
+
 
 
     <com.google.android.material.button.MaterialButton
