@@ -31,7 +31,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
+    r"<ImageView
         android:id="@+id/iv_logoback"
         android:layout_width="80dp"
         android:layout_height="35dp"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="Edit Teks Masukan Email"
 
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@id/tv_add_password"
             app:layout_constraintStart_toStartOf="parent"
 
@@ -168,14 +168,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_add_email_login"
 
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="20dp" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_add_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="Edit Teks Masukan Kata Sandi"
 
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             app:passwordToggleEnabled="true"
             app:layout_constraintTop_toBottomOf="@id/tv_confirmation_password"
             app:layout_constraintStart_toStartOf="parent"
@@ -198,13 +198,12 @@
             android:layout_height="wrap_content"
             android:text="Lupa Kata Sandi?"
             android:contentDescription="Lupa Kata Sandi?"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_add_password_login"
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/ColorPrimary"
-            android:textSize="12sp"
-            android:layout_marginTop="16dp"/>
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_next_register_password"
@@ -213,11 +212,9 @@
             android:text="Lanjut"
             android:contentDescription="Tombol Lanjut"
             app:cornerRadius="8dp"
-            android:layout_marginTop="20dp"
             android:padding="18dp"
             android:textSize="16sp"
             android:textColor="@color/white"
-            android:layout_marginBottom="20dp"
             android:backgroundTint="?attr/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
