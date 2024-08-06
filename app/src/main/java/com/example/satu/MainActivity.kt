@@ -1,5 +1,6 @@
 package com.example.satu
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.satu.databinding.ActivityMainBinding
+import com.example.satu.ui.activities.qris.QrisFragment
 import com.example.satu.ui.fragment.home.HomeFragment
 import com.example.satu.ui.fragment.notification.NotifikasiFragment
 import com.example.satu.ui.fragment.profile.ProfileFragment
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.beranda -> loadFragment(HomeFragment())
                 R.id.tabungan -> loadFragment(TabunganFragment())
                 R.id.notifikasi-> loadFragment(NotifikasiFragment())
+                R.id.qris -> loadFragment(QrisFragment())
                 R.id.akun -> loadFragment(ProfileFragment())
             }
             true

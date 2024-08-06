@@ -4,7 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".ui.activities.maintance.MaintanceActivity">
+    <TextView
+        android:id="@+id/tv_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maaf, Halaman ini Belum Selesai Dibuat"
+        android:contentDescription="Maaf, Halaman ini Belum Selesai Dibuat"
+        android:paddingHorizontal="70dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/opensans_semibold"
+        android:textSize="14sp"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_logo"/>
 
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="290dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img_maintance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kembali"
+        android:contentDescription="Tombol Kembali"
+        app:cornerRadius="8dp"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:backgroundTint="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

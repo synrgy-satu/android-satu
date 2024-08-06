@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.satu.R
 import com.example.satu.databinding.FragmentHomeBinding
+import com.example.satu.ui.activities.maintance.MaintanceActivity
 import com.example.satu.ui.activities.mutation.DateRangeViewModel
 import com.example.satu.ui.activities.mutation.MutationActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -32,6 +33,35 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, MutationActivity::class.java)
             startActivity(intent)
         }
+        binding.fiturInvestasi.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.fiturKredit.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.fiturTap.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.fiturPembayaran.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.fiturPembelian.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.fiturTransfer.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnRekening.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onDestroyView() {

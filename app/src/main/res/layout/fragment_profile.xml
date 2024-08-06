@@ -64,7 +64,7 @@
                         android:id="@+id/tvAccountName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/nama_akun"
+                        android:text="Nama Lenkap Anda"
                         android:contentDescription="Nama Lengkap Anda"
                         android:textSize="18sp"
                         android:fontFamily="@font/inter_bold"
@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
                         android:contentDescription="Email Anda"
-                        android:text="@string/email"
+                        android:text="emailanda@gmail.com"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 

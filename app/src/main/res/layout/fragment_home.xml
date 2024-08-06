@@ -81,7 +81,7 @@
                     android:id="@+id/tv_text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Muhamad Yazid emoney"
+                    android:text="Nama Lengkap Anda"
                     android:contentDescription="Nama kamu"
                     android:fontFamily="@font/opensans_semibold"
                     android:textColor="@color/ColorPrimary"
@@ -239,6 +239,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/fitur_transfer"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:contentDescription="Tombol fitur transfer"
@@ -294,6 +295,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fitur_pembayaran"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -321,6 +323,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fitur_pembelian"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:contentDescription="Tombol fitur pembelian"
@@ -375,6 +378,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/fitur_investasi"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:contentDescription="Tombol fitur investasi"
@@ -402,6 +406,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fitur_walet"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:contentDescription="Tombol fitur E Wallet"
@@ -429,6 +434,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fitur_tap"
                         android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:contentDescription="Tombol fitur FlashTap"
@@ -456,6 +462,10 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fitur_kredit"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur Kredit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
