@@ -36,6 +36,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Hari ini"
+                        android:contentDescription="Pilih jika hari ini"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rbTodayDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -64,6 +65,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="7 hari terakhir"
+
+                        android:contentDescription="Pilih jika 7 hari terakhir"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rb7DaysDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -92,6 +95,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="30 hari terakhir"
+
+                        android:contentDescription="Pilih jika 30 hari terakhir"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rb30DaysDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -120,6 +125,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Pilih tanggal"
+
+                        android:contentDescription="Pilih tanggal spesifik"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rbChooseDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -164,6 +171,8 @@
                             android:textColor="@color/black"
                             android:fontFamily="@font/inter"
                             android:text="Tanggal mulai"
+
+                            android:contentDescription="Pilih tanggal mulai"
                             android:paddingLeft="10dp"
                             android:textSize="14sp"
                             android:drawablePadding="10dp"
@@ -211,6 +220,8 @@
                             android:textColor="@color/black"
                             android:fontFamily="@font/inter"
                             android:text="Tanggal selesai"
+
+                            android:contentDescription="Pilih tanggal selesai"
                             android:paddingLeft="10dp"
                             android:textSize="14sp"
                             android:drawablePadding="10dp"
@@ -258,6 +269,8 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:contentDescription="Tombol terapkan"
                 android:backgroundTint="@color/disable"
                 android:text="@string/terapkan"
                 android:fontFamily="@font/inter_bold"
