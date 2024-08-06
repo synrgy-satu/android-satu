@@ -14,6 +14,7 @@ import com.example.satu.R
 import com.example.satu.databinding.ActivityLoginEmailBinding
 import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
 import com.example.satu.ui.activities.auth.forgotpassword.ForgotPasswordActivity
+import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 
 class LoginEmailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginEmailBinding
@@ -45,6 +46,9 @@ class LoginEmailActivity : AppCompatActivity() {
         }
         tvForgotPasswordLogin.setOnClickListener {
             startActivity(Intent(this@LoginEmailActivity, ForgotPasswordActivity::class.java))
+        }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@LoginEmailActivity, OnBoardingNewUserActivity::class.java))
         }
     }
 }

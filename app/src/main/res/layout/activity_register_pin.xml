@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_bold"
             android:text="PIN M-Banking"
-            android:contentDescription="PIN M-Banking"
+            android:contentDescription="Ini adalah halaman mengisi PIN M-Banking"
             android:textColor="@color/black"
             android:textSize="28sp"
             android:layout_marginTop="32dp"
@@ -151,7 +151,6 @@
             android:id="@+id/et_input_pin_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="Edit Teks Masukan PIN"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
@@ -162,6 +161,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
+                android:contentDescription="Tombol input masukkan PIN 6 digit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -190,8 +190,7 @@
             android:id="@+id/et_confirmation_pin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="Edit Teks Konfirmasi PIN"
-            android:layout_marginLeft="16dp"
+           android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             app:passwordToggleEnabled="true"
@@ -204,6 +203,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:contentDescription="Tombol input Konfirmasi PIN anda"
                 android:inputType="numberPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>

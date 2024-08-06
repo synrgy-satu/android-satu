@@ -10,6 +10,7 @@ import com.example.satu.R
 import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
 import com.example.satu.databinding.ActivityRegisterRekeningBinding
 import com.example.satu.ui.activities.auth.newuser.login.LoginEmailActivity
+import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.loader.LoaderRegisterRekeningActivity
 
 class RegisterRekeningActivity : AppCompatActivity() {
@@ -23,6 +24,9 @@ class RegisterRekeningActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding) {
         btnNext.setOnClickListener {
             startActivity(Intent(this@RegisterRekeningActivity, LoaderRegisterRekeningActivity::class.java))
+        }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@RegisterRekeningActivity, OnBoardingNewUserActivity::class.java))
         }
     }
 }

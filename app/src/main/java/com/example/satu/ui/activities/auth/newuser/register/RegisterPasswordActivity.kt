@@ -42,5 +42,8 @@ class RegisterPasswordActivity : AppCompatActivity() {
         btnNext.setOnClickListener {
             startActivity(Intent(this@RegisterPasswordActivity, RegisterPinActivity::class.java))
         }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@RegisterPasswordActivity, RegisterEmailActivity::class.java))
+        }
     }
 }

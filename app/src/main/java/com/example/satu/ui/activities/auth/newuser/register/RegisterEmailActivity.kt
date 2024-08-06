@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityRegisterEmailBinding
 import com.example.satu.databinding.ActivityRegisterRekeningBinding
+import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.loader.LoaderRegisterEmailActivity
 import com.example.satu.ui.activities.loader.LoaderRegisterRekeningActivity
 
@@ -23,6 +24,9 @@ class RegisterEmailActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding) {
         btnNext.setOnClickListener {
             startActivity(Intent(this@RegisterEmailActivity, LoaderRegisterEmailActivity::class.java))
+        }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@RegisterEmailActivity, RegisterRekeningActivity::class.java))
         }
     }
 }

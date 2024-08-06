@@ -13,7 +13,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityForgotpasswordBinding
 import com.example.satu.databinding.ActivityLoginEmailBinding
+import com.example.satu.ui.activities.auth.newuser.login.LoginEmailActivity
 import com.example.satu.ui.activities.auth.newuser.login.LoginSuccessActivity
+import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.loader.LoaderForgotPasswordActivity
 
 class ForgotPasswordActivity : AppCompatActivity() {
@@ -43,6 +45,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
         btnKirim.setOnClickListener {
             startActivity(Intent(this@ForgotPasswordActivity, LoaderForgotPasswordActivity::class.java))
         }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@ForgotPasswordActivity, LoginEmailActivity::class.java))
+        }
+
     }
 
 }

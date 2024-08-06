@@ -23,5 +23,8 @@ class RegisterPinActivity : AppCompatActivity() {
         btnNext.setOnClickListener {
             startActivity(Intent(this@RegisterPinActivity, RegisterSuccessActivity::class.java))
         }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@RegisterPinActivity, RegisterPasswordActivity::class.java))
+        }
     }
 }

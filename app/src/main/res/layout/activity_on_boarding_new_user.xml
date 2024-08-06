@@ -65,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_button_masuk"
-        android:contentDescription="@string/tombol_button_masuk"
+        android:contentDescription="Tombol Masuk"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/opensans_semibold"
         android:padding="16dp"
-        android:contentDescription="@string/tombol_button_daftar"
+        android:contentDescription="Tombol Daftar Akun"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
 
