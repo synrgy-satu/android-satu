@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.satu.R
 import com.example.satu.databinding.FragmentHomeBinding
+import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.maintance.MaintanceActivity
 import com.example.satu.ui.activities.mutation.DateRangeViewModel
 import com.example.satu.ui.activities.mutation.MutationActivity
@@ -59,6 +60,10 @@ class HomeFragment : Fragment() {
         }
         binding.btnRekening.setOnClickListener {
             val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnKeluar.setOnClickListener {
+            val intent = Intent(activity, OnBoardingNewUserActivity::class.java)
             startActivity(intent)
         }
 
