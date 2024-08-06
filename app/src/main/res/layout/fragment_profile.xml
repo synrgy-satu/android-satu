@@ -19,6 +19,7 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/topAppBar"
+                android:contentDescription="Informasi Account"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
@@ -47,8 +48,7 @@
                     android:layout_weight="3">
                     <ImageView
                         android:id="@+id/ivAccountProfile"
-
-                        android:contentDescription="@string/akun_profil"
+                        android:contentDescription="Foto Profil"
                         android:layout_gravity="top"
                         android:layout_width="70dp"
                         android:layout_height="100dp"
@@ -65,6 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/nama_akun"
+                        android:contentDescription="Nama Lengkap Anda"
                         android:textSize="18sp"
                         android:fontFamily="@font/inter_bold"
                         android:textColor="@color/primary" />
@@ -74,6 +75,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter"
+                        android:contentDescription="Email Anda"
                         android:text="@string/email"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -94,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pengaturan"
+                android:contentDescription="Pengaturan"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -292,11 +295,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bantuan"
+                android:contentDescription="Bantuan"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/inter_bold" />
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol Live Chat"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -339,6 +346,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol kontak kami"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -381,6 +391,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol syarat dan ketentuan"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -423,6 +436,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol kebijakan privasi"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -477,11 +493,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/informasi"
+                android:contentDescription="Informasi"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/inter_bold" />
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol panduan pengguna"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -524,6 +544,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol info kurs"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -566,6 +589,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol info saham"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -608,6 +634,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol lokasi ATM BCA"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -650,6 +679,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="Tombol Kantor BCA"
                 android:layout_marginHorizontal="1dp"
                 android:layout_marginVertical="5dp"
                 android:layout_width="match_parent"
@@ -721,6 +753,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primary"
                 android:text="@string/log_out"
+                android:contentDescription="Tombol keluar"
                 android:fontFamily="@font/inter_bold"
                 android:textSize="14sp"
                 app:cornerRadius="10dp"/>

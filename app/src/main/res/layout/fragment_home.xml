@@ -138,7 +138,7 @@
                         android:text="*********"
                         android:textStyle="bold"
                         android:layout_gravity="center"
-                        android:contentDescription="IDR"
+                        android:contentDescription="Nominal sando anda"
                         android:fontFamily="@font/opensans_regular"
                         android:textColor="@color/white"
                         android:textSize="18sp"
@@ -150,7 +150,7 @@
                         android:layout_gravity="center"
                         android:layout_height="13dp"
                         android:background="@drawable/ic_eye_lihat"
-                        android:contentDescription="tombol bantuan"/>
+                        android:contentDescription="Tombol icon untuk menutup dan membuka saldo anda"/>
 
                 </LinearLayout>
                 <TextView
@@ -174,6 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2314712461030"
+                    android:contentDescription="Nomor rekening anda"
                     android:textStyle="bold"
                     android:fontFamily="@font/opensans_semibold"
                     android:textColor="@color/white"
@@ -186,7 +187,7 @@
                     android:layout_gravity="center"
                     android:layout_height="21dp"
                     android:background="@drawable/ic_salin"
-                    android:contentDescription="tombol bantuan"/>
+                    android:contentDescription="Tombol salin nomor rekening"/>
 
             </LinearLayout>
                 <LinearLayout
@@ -199,6 +200,7 @@
                         android:id="@+id/iv_saver"
                         android:layout_width="80dp"
                         android:layout_height="30dp"
+                        android:contentDescription="Jenis rekening anda"
                         android:src="@drawable/ic_saver"/>
 
                     <View
@@ -210,6 +212,7 @@
                         android:id="@+id/btn_rekening"
                         android:layout_width="190dp"
                         android:layout_height="60dp"
+                        android:contentDescription="Tombol pilih rekening"
                         android:src="@drawable/button_rekening"/>
                 </LinearLayout>
             </LinearLayout>
@@ -236,12 +239,16 @@
 
 
                     <LinearLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur transfer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
+                            android:contentDescription="Tombol fitur transfer"
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
@@ -263,10 +270,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur mutasi"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
+                            android:contentDescription="Tombol fitur mutasi"
                             android:layout_gravity="center"
                             android:background="@drawable/ic_mutasi"/>
                         <TextView
@@ -286,11 +297,15 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur pembayaran"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
+                            android:contentDescription="Tombol fitur pembayaran"
                             android:background="@drawable/ic_pembayaran"/>
                         <TextView
                             android:id="@+id/tv_text_pembayaran"
@@ -305,12 +320,16 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur pembelian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
+                            android:contentDescription="Tombol fitur pembelian"
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
@@ -334,6 +353,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fitur"
+                    android:contentDescription="Fitur - fitur yang ada di aplikasi"
                     android:fontFamily="@font/opensans_regular"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -354,13 +374,17 @@
 
 
                     <LinearLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur investasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
                             android:layout_width="55dp"
+                            android:contentDescription="Tombol fitur investasi"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
                             android:background="@drawable/ic_investasi"/>
@@ -377,13 +401,17 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur E Wallet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
                             android:layout_width="55dp"
+                            android:contentDescription="Tombol fitur E Wallet"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
                             android:background="@drawable/ic_walet"/>
@@ -400,12 +428,16 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:contentDescription="Tombol fitur FlashTap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
+                            android:contentDescription="Tombol fitur FlashTap"
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
@@ -428,7 +460,8 @@
                         android:orientation="vertical"
                         android:layout_gravity="center"
                         android:layout_weight="1">
-                        <ImageButton
+                        <ImageView
+                            android:contentDescription="Tombol fitur kredit"
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
