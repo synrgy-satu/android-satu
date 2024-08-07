@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary">#3F5FD1</color>
+    <color name="primary">#333999</color>
     <color name="disable">#DADADA</color>
     DADADA
 </resources>

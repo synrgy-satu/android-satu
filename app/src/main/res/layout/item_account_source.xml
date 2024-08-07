@@ -25,7 +25,8 @@
             android:gravity="center_vertical"
             android:orientation="vertical">
             <com.google.android.material.textview.MaterialTextView
-                android:paddingVertical="5dp"
+                android:layout_weight="1"
+                android:layout_marginVertical="5dp"
                 android:id="@+id/tvAccountNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,13 +37,24 @@
                 android:layout_marginEnd="16dp" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:paddingVertical="5dp"
+                android:layout_weight="1"
+                android:layout_marginVertical="5dp"
                 android:id="@+id/tvAccountName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_semibold"
                 android:textSize="14sp"
                 android:text="ATIFAH"
+                android:textColor="@color/black" />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_weight="1"
+                android:layout_marginVertical="5dp"
+                android:id="@+id/tvAccountSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semibold"
+                android:textSize="14sp"
+                android:text="Saver+"
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>

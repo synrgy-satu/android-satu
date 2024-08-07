@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:drawableBottom="@drawable/ic_black_lock" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/pin_transaksi"
+            android:textSize="18sp"
+            android:fontFamily="@font/open_sans_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/silahkan_masukan_pin"
+            android:textSize="14sp"
+            android:fontFamily="@font/open_sans_medium" />
+
+        <LinearLayout
+            android:id="@+id/llEnterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="10dp"
+                android:id="@+id/tvPassword1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/primary"
+                android:drawableBottom="@drawable/ic_min"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:padding="10dp"
+                android:id="@+id/tvPassword2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/primary"
+                android:drawableBottom="@drawable/ic_min"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:padding="10dp"
+                android:id="@+id/tvPassword3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/primary"
+                android:drawableBottom="@drawable/ic_min"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:padding="10dp"
+                android:id="@+id/tvPassword4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/primary"
+                android:drawableBottom="@drawable/ic_min"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/tvPassword5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:drawableTint="@color/primary"
+                android:drawableBottom="@drawable/ic_min"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:padding="10dp"
+                android:id="@+id/tvPassword6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/primary"
+                android:drawableBottom="@drawable/ic_min"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/tvShowPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:drawableBottom="@drawable/ic_eye"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llNumberPin"
+            android:layout_marginTop="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center_horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center_horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="4"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="6"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center_horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="7"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="8"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="9"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center_horizontal">
+
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <TextView
+                        android:id="@+id/tvNumber0"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:background="@drawable/circle_background"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textSize="20sp"
+                        android:padding="10dp" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    app:cardCornerRadius="35dp"
+                    app:cardElevation="4dp">
+
+                    <ImageView
+                        android:id="@+id/ivDelete"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_backspace"
+                        android:background="@drawable/circle_background"
+                        android:padding="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

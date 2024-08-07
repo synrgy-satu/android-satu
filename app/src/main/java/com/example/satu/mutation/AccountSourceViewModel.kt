@@ -11,8 +11,8 @@ class AccountSourceViewModel : ViewModel() {
     init {
         // Create dummy data
         _accounts.value = listOf(
-            AccountSource("1000 8310 4396 312", "Account A"),
-            AccountSource("2000 9210 4396 413", "Account B")
+            AccountSource("1000 8310 4396 312", "Account A", "Saver+"),
+            AccountSource("2000 9210 4396 413", "Account B", "Prioritas")
         )
     }
 }

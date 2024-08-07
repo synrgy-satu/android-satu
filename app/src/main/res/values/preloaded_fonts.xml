@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
         <item>@font/inter</item>
         <item>@font/inter_bold</item>
         <item>@font/inter_light</item>
         <item>@font/inter_medium</item>
         <item>@font/inter_semibold</item>
         <item>@font/inter_thin</item>
+        <item>@font/open_sans</item>
+        <item>@font/open_sans_bold</item>
+        <item>@font/open_sans_light</item>
+        <item>@font/open_sans_medium</item>
+        <item>@font/open_sans_semibold</item>
     </array>
 </resources>

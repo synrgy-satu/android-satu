@@ -31,11 +31,11 @@
                     <TextView
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/tvTodayPeriode"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvAll"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/hari_ini"
+                        android:text="@string/all"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rbTodayDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="8dp"/>
                     <RadioButton
-                        android:id="@+id/rbTodayDateRange"
+                        android:id="@+id/rbAll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -59,11 +59,11 @@
                     <TextView
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/tv7DaysPeriode"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvTransactionIn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tujuh_hari_terakhir"
+                        android:text="@string/transaction_in"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rb7DaysDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -72,7 +72,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="8dp"/>
                     <RadioButton
-                        android:id="@+id/rb7DaysDateRange"
+                        android:id="@+id/rbTransactionIn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -87,11 +87,11 @@
                     <TextView
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/tv30DaysPeriode"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvTransactionOut"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tigapuluh_hari_terakhir"
+                        android:text="@string/transaction_out"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/rb30DaysDateRange"
                         app:layout_constraintTop_toTopOf="parent"
@@ -100,7 +100,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="8dp"/>
                     <RadioButton
-                        android:id="@+id/rb30DaysDateRange"
+                        android:id="@+id/rbTransactionOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -111,20 +111,6 @@
 
 
             </RadioGroup>
-
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/rentang_maksimum_periode"
-                android:textColor="@color/black"
-                android:fontFamily="@font/open_sans"
-                android:textSize="12sp"
-                android:layout_marginHorizontal="15dp"/>
-
-
-
 
 
             <com.google.android.material.button.MaterialButton

@@ -27,10 +27,11 @@ class AccountSourceAdapter(
     class AccountSourceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvAccountNumber: MaterialTextView = itemView.findViewById(R.id.tvAccountNumber)
         private val tvAccountName: MaterialTextView = itemView.findViewById(R.id.tvAccountName)
-
+        private val tvAccountSource: MaterialTextView = itemView.findViewById(R.id.tvAccountSource)
         fun bind(account: AccountSource, onItemClick: (AccountSource) -> Unit) {
             tvAccountNumber.text = account.accountNumber
             tvAccountName.text = account.accountName
+            tvAccountSource.text = account.accountSource
             itemView.setOnClickListener { onItemClick(account) }
         }
     }
