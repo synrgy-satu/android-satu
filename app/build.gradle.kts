@@ -52,6 +52,7 @@ dependencies {
     val navVersion = "2.7.3"
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
-    implementation("com.alimuzaffar.lib:pinentryedittext:1.3.10")
     implementation("androidx.viewpager2:viewpager2:1.1.0")
+    implementation("androidx.fragment:fragment-ktx:1.3.6")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
 }

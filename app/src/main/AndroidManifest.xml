@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ui.activity.transfer.SelectTimeActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".ui.activity.notification.notification"
             android:exported="false" />
@@ -26,13 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.transfer.verificationTransaction"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.activity.transfer.confirmationTransfer"
             android:exported="false" />
@@ -44,7 +44,13 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.transfer.selectDestinationTransfer"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.activity.login.RepeatedLoginActivity"
             android:exported="false" />

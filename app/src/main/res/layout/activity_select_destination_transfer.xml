@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
+    android:orientation="horizontal"
     tools:context=".ui.activity.transfer.selectDestinationTransfer">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -19,24 +20,24 @@
             android:background="?attr/colorPrimary"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:title="Transfer"
-            app:titleTextColor="@color/white"
-            app:titleTextAppearance="@style/ToolbarTitleText" />
+            app:titleTextAppearance="@style/ToolbarTitleText"
+            app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:id="@+id/btn_tf_bca"
+        android:id="@+id/btnTfBca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:clickable="true"
+        android:orientation="horizontal"
         android:padding="16dp">
 
         <ImageView
             android:id="@+id/iv_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/image_icon_next"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:src="@drawable/image_icon_next" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,29 +48,30 @@
                 android:id="@+id/tv_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/opensans_bold"
                 android:text="Transfer ke Rekening BCA"
                 android:textColor="@color/ColorPrimary"
-                android:fontFamily="@font/opensans_bold"
-                android:textSize="16sp"
-                android:layout_marginLeft="16dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Transfer dana ke sesama rekening BCA"
+                android:layout_marginLeft="16sp"
                 android:fontFamily="@font/opensans_regular"
-                android:textSize="14sp"
-                android:layout_marginLeft="16sp"/>
+                android:text="Transfer dana ke sesama rekening BCA"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="50dp"
-            android:src="@drawable/baseline_navigate_next_24"/>
+            android:layout_marginTop="8dp"
+            android:src="@drawable/baseline_navigate_next_24" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -79,15 +81,15 @@
         android:id="@+id/btn_tf_another"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:clickable="true"
+        android:orientation="horizontal"
         android:padding="16dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/image_icon_next"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:src="@drawable/image_icon_next" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -97,28 +99,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/opensans_bold"
                 android:text="Transfer ke Bank Lain"
                 android:textColor="@color/ColorPrimary"
-                android:fontFamily="@font/opensans_bold"
-                android:textSize="16sp"
-                android:layout_marginLeft="16dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Transfer dana ke bank lain dalam negeri"
+                android:layout_marginLeft="16sp"
                 android:fontFamily="@font/opensans_regular"
-                android:textSize="14sp"
-                android:layout_marginLeft="16sp"/>
+                android:text="Transfer dana ke bank lain dalam negeri"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="42dp"
-            android:src="@drawable/baseline_navigate_next_24"/>
+            android:layout_marginTop="8dp"
+            android:src="@drawable/baseline_navigate_next_24" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -128,15 +131,15 @@
         android:id="@+id/btn_tf_virtual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:clickable="true"
+        android:orientation="horizontal"
         android:padding="16dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/image_icon_next"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:src="@drawable/image_icon_next" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -146,28 +149,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/opensans_bold"
                 android:text="Virtual Accoount"
                 android:textColor="@color/ColorPrimary"
-                android:fontFamily="@font/opensans_bold"
-                android:textSize="16sp"
-                android:layout_marginLeft="16dp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Transfer dana ke rekening Virtual Account"
+                android:layout_marginLeft="16sp"
                 android:fontFamily="@font/opensans_regular"
-                android:textSize="14sp"
-                android:layout_marginLeft="16sp"/>
+                android:text="Transfer dana ke rekening Virtual Account"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="32dp"
-            android:src="@drawable/baseline_navigate_next_24"/>
+            android:layout_marginTop="8dp"
+            android:src="@drawable/baseline_navigate_next_24" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

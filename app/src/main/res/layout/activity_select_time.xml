@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.transfer.SelectTimeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:title="Pilih Tanggal dan Waktu"
+            app:titleTextColor="@color/white"
+            app:titleTextAppearance="@style/ToolbarTitleText" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/tv_waktu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Waktu"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="16sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnChooseWaktu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih"
+        android:contentDescription="Tombol pilih tanggal dan waktu"
+        android:drawableRight="@drawable/baseline_access_time_24"
+        app:cornerRadius="8dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_button_outline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_tanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Tanggal "
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="16sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnChooseTanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih"
+        android:contentDescription="Tombol pilih tanggal dan waktu"
+        android:drawableRight="@drawable/baseline_calendar_month_24"
+        app:cornerRadius="8dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_button_outline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        app:cornerRadius="8dp"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textColor="@color/white"
+        android:backgroundTint="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</LinearLayout>

@@ -38,12 +38,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:listitem="@layout/item_fav_rekening"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_fav"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            tools:listitem="@layout/item_fav_rekening"/>-->
     </LinearLayout>
 
     <androidx.appcompat.widget.SearchView
@@ -55,6 +55,7 @@
         android:layout_margin="16dp" />
 
     <Button
+        android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_button"

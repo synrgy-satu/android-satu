@@ -2,12 +2,7 @@ package com.example.satu.ui.activity.register.password
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.R
-import com.example.satu.databinding.ActivityRegisterEmailBinding
 import com.example.satu.databinding.ActivityRegisterPasswordBinding
 import com.example.satu.ui.activity.register.pin.PinRegisterActivity
 
