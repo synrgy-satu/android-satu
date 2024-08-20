@@ -5,11 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.MainActivity
+import com.example.satu.ui.MainActivity
 import com.example.satu.R
-import com.example.satu.ui.activities.auth.newuser.register.RegisterPasswordActivity
 
 class LoginSuccessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

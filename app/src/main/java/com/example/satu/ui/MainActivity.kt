@@ -1,16 +1,13 @@
-package com.example.satu
+package com.example.satu.ui
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.satu.R
 import com.example.satu.databinding.ActivityMainBinding
 import com.example.satu.ui.activities.qris.QrisFragment
 import com.example.satu.ui.fragment.home.HomeFragment
@@ -33,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.beranda -> loadFragment(HomeFragment())
                 R.id.tabungan -> loadFragment(TabunganFragment())
-                R.id.notifikasi-> loadFragment(NotifikasiFragment())
+                R.id.notifikasi -> loadFragment(NotifikasiFragment())
                 R.id.qris -> loadFragment(QrisFragment())
                 R.id.akun -> loadFragment(ProfileFragment())
             }
