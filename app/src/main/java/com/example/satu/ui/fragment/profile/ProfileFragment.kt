@@ -31,6 +31,5 @@ class ProfileFragment : Fragment() {
                 val intent = Intent(activity, OnBoardingNewUserActivity::class.java)
                 startActivity(intent)
             }
-
     }
 }
