@@ -4,12 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.R
 import com.example.satu.databinding.ActivityRegisterEmailBinding
-import com.example.satu.databinding.ActivityRegisterRekeningBinding
-import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.loader.LoaderRegisterEmailActivity
 import com.example.satu.ui.activities.loader.LoaderRegisterRekeningActivity
 import com.example.satu.utils.SnackbarUtils
@@ -63,6 +58,10 @@ class RegisterEmailActivity : AppCompatActivity() {
                 showSnackBar("Format email salah")
                 false
             }
+            !isPhoneNumberValid(phone) -> {
+                showSnackBar("Nomor Telepon harus terdiri dari 11 hingga 13 digit")
+                false
+            }
             else -> true
         }
     }
@@ -72,6 +71,9 @@ class RegisterEmailActivity : AppCompatActivity() {
             "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
         )
         return emailPattern.matcher(email).matches()
+    }
+    private fun isPhoneNumberValid(phone: String): Boolean {
+        return phone.length in 11..13 && phone.all { it.isDigit() }
     }
 
     private fun showSnackBar(message: String) {

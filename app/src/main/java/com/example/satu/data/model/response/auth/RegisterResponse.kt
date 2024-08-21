@@ -42,13 +42,13 @@ data class RekeningsItem(
 	val id: String? = null,
 
 	@field:SerializedName("rekeningNumber")
-	val rekeningNumber: Int? = null,
+	val rekeningNumber: Long? = null,
 
 	@field:SerializedName("expiredDateYear")
 	val expiredDateYear: Int? = null,
 
 	@field:SerializedName("cardNumber")
-	val cardNumber: Int? = null
+	val cardNumber: Long? = null
 ) : Parcelable
 
 @Parcelize
