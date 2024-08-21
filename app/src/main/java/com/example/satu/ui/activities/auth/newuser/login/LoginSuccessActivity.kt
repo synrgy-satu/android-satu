@@ -7,16 +7,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.satu.ui.MainActivity
 import com.example.satu.R
+import com.example.satu.databinding.ActivityLoginEmailBinding
+import com.example.satu.databinding.ActivityLoginSuccessBinding
 
 class LoginSuccessActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginSuccessBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_login_success)
-        Handler().postDelayed({
+        binding = ActivityLoginSuccessBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnLoginSuccess.setOnClickListener {
             val mainIntent = Intent(this@LoginSuccessActivity, MainActivity::class.java)
             startActivity(mainIntent)
             finish()
-        }, 3000L)
+        }
     }
 }

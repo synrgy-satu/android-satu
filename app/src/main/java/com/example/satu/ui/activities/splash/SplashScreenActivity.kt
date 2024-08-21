@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.auth.repeateduser.RepeadLoginActivity
+import com.example.satu.ui.activities.auth.repeateduser.onboarding.OnBoardingRepeadUserActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
 
@@ -42,7 +43,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 }, SPLASH_DISPLAY_LENGTH)
             } else {
                 Handler(Looper.getMainLooper()).postDelayed({
-                    val intent = Intent(this@SplashScreenActivity, RepeadLoginActivity::class.java)
+                    val intent = Intent(this@SplashScreenActivity, OnBoardingRepeadUserActivity::class.java)
                     startActivity(intent)
                     finish()
                 }, SPLASH_DISPLAY_LENGTH)

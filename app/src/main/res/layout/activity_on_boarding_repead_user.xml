@@ -13,7 +13,7 @@
         android:id="@+id/iv_decorative"
         android:layout_width="268dp"
         android:layout_height="347dp"
-        android:src="@drawable/img_decorative_mask"
+        android:src="@drawable/ic_decorative"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -47,17 +47,17 @@
 
     <TextView
         android:id="@+id/tv_text1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
-        android:paddingRight="120dp"
         android:text="@string/tagline"
         android:contentDescription="@string/tagline"
         android:fontFamily="@font/opensans_bold"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 

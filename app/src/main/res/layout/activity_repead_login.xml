@@ -96,7 +96,6 @@
             android:textColor="@color/Grey"
             android:textSize="14sp"
             android:layout_marginLeft="16dp"
-            android:paddingRight="124dp"
             app:layout_constraintTop_toBottomOf="@id/tv_text4"
             app:layout_constraintStart_toStartOf="parent"/>
 

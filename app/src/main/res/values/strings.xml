@@ -45,4 +45,8 @@
     <string name="log_out">Keluar</string>
     <string name="terapkan">Terapkan</string>
     <string name="mutasi_rekening">Mutasi Rekening</string>
+    <string name="logout">Log Out</string>
+    <string name="logout_desc">Apakah kamu ingin keluar dari aplikasi?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

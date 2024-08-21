@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="20dp"
+    android:background="@drawable/bg_round_logout"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apakah anda yakin untuk keluar dari aplikasi?"
+            android:contentDescription="Apakah anda yakin untuk keluar dari aplikasi?"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnyes"
+                app:cornerRadius="10dp"
+                android:textSize="14sp"
+                android:text="Yes"
+                android:contentDescription="Yes"
+                android:layout_margin="10dp"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnno"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="No"
+                android:contentDescription="No"
+                app:cornerRadius="10dp"
+                android:backgroundTint="#F0F4FA"
+                android:layout_margin="10dp"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
