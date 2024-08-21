@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.example.satu.R
+import com.example.satu.data.model.request.auth.CardCheckRequest
 import com.example.satu.data.model.request.auth.RegisterRequest
 import com.example.satu.data.model.response.auth.DataUser
 import com.example.satu.utils.ApiError.handleHttpException
@@ -21,10 +22,24 @@ class UserRepository private constructor(
 ) {
 
 
-    fun register(emailAddress: String, password: String, cardNumber:  String, phoneNumber:  String, pin: String) = liveData {
+    fun register(emailAddress: String, password: String, cardNumber:  Long, phoneNumber:  String, pin: String) = liveData {
         emit(Result.Loading)
         try {
             val response = apiService.register(RegisterRequest(emailAddress, password, cardNumber, phoneNumber, pin))
+            emit(Result.Success(response))
+        }catch (e: HttpException) {
+            emit(handleHttpException(e))
+        } catch (exception: IOException) {
+            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+        } catch (exception: Exception) {
+            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+        }
+    }
+
+    fun cardCheck(cardNumber: Long, month: Int, year: Int) = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.cardCheck(CardCheckRequest(cardNumber, month, year))
             emit(Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))

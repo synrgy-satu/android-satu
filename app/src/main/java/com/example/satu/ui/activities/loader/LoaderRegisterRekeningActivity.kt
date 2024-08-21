@@ -18,8 +18,11 @@ class LoaderRegisterRekeningActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_loader_register_rekening)
+
+        val rekening = intent.getLongExtra("REKENING", -1L)
         Handler().postDelayed({
             val mainIntent = Intent(this@LoaderRegisterRekeningActivity, RegisterEmailActivity::class.java)
+            mainIntent.putExtra("REKENING", rekening)
             startActivity(mainIntent)
             finish()
         }, SPLASH_DISPLAY_LENGTH)

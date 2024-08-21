@@ -37,6 +37,7 @@ class RegisterRekeningActivity : AppCompatActivity() {
         }
         topAppBar.setOnClickListener {
             startActivity(Intent(this@RegisterRekeningActivity, OnBoardingNewUserActivity::class.java))
+
         }
     }
 
@@ -67,8 +68,12 @@ class RegisterRekeningActivity : AppCompatActivity() {
           showSnackBar("Tahun tidak boleh  melebihi tahun sekarang")
           return
       }
-
-        viewModel.register(cardNumber = rekening).observe(this) { result ->
+      val rekeningLong = rekening.toLongOrNull()
+      if (rekeningLong == null) {
+          showSnackBar("Nomor rekening tidak valid")
+          return
+      }
+        viewModel.cardCheck(rekeningLong, bulanInt, tahunInt).observe(this) { result ->
                 when (result) {
                     is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@RegisterRekeningActivity)
                     is Result.Success -> onRegisterSuccess()
@@ -79,9 +84,9 @@ class RegisterRekeningActivity : AppCompatActivity() {
     private fun onRegisterSuccess() {
         ProgressDialogUtils.hideProgressDialog()
         val rekening = binding.etInputNumberRek.text.toString().trim()
+        val rekeningLong = rekening.toLongOrNull()
         val intent = Intent(this@RegisterRekeningActivity, LoaderRegisterRekeningActivity::class.java)
-
-        intent.putExtra("REKENING", rekening)
+        intent.putExtra("REKENING", rekeningLong)
         startActivity(intent)
     }
 
