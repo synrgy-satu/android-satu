@@ -11,7 +11,7 @@ data class RegisterResponse(
 	val code: Int? = null,
 
 	@field:SerializedName("data")
-	val data: Data? = null,
+	val data: DataRegister? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -52,7 +52,7 @@ data class RekeningsItem(
 ) : Parcelable
 
 @Parcelize
-data class Data(
+data class DataRegister(
 
 	@field:SerializedName("rekenings")
 	val rekenings: List<RekeningsItem?>? = null,
