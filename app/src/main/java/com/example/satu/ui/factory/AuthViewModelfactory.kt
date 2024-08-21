@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.satu.data.repository.UserRepository
 import com.example.satu.di.Injection
+import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.RegisterViewModel
 
 class AuthViewModelFactory private constructor(private val userRepository: UserRepository) :
@@ -12,6 +13,8 @@ class AuthViewModelFactory private constructor(private val userRepository: UserR
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>):  T =
         when {
+            modelClass.isAssignableFrom(LoginViewModel::class.java) ->
+                LoginViewModel(userRepository) as T
             modelClass.isAssignableFrom(RegisterViewModel::class.java) ->
                 RegisterViewModel(userRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

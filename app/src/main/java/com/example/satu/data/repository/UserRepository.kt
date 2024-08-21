@@ -8,8 +8,10 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.example.satu.R
 import com.example.satu.data.model.request.auth.CardCheckRequest
+import com.example.satu.data.model.request.auth.LoginRequest
 import com.example.satu.data.model.request.auth.RegisterRequest
 import com.example.satu.data.model.response.auth.DataUser
+import com.example.satu.utils.ApiError
 import com.example.satu.utils.ApiError.handleHttpException
 import com.example.satu.utils.Result
 import retrofit2.HttpException
@@ -20,7 +22,15 @@ class UserRepository private constructor(
     private val application: Application,
     private val userPref: UserPreferences
 ) {
-
+    private suspend fun <T> apiCall(call: suspend () -> T): Result<T> = try {
+        Result.Success(call())
+    } catch (e: HttpException) {
+        Result.Error(ApiError.handleHttpExceptionString(e))
+    } catch (exception: IOException) {
+        Result.Error(application.resources.getString(R.string.network_error_message))
+    } catch (exception: Exception) {
+        Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error))
+    }
 
     fun register(emailAddress: String, password: String, cardNumber:  Long, phoneNumber:  String, pin: String) = liveData {
         emit(Result.Loading)
@@ -50,6 +60,14 @@ class UserRepository private constructor(
         }
     }
 
+    fun login(email: String, password: String) = liveData {
+        emit(Result.Loading)
+        emit(apiCall {
+            val response = apiService.login(LoginRequest(email, password))
+            response.data?.let { saveSession(it) }
+            response
+        })
+    }
 
 
     suspend fun saveSession(data: DataUser) = userPref.saveSession(data)
