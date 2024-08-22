@@ -27,6 +27,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         }
     }
     suspend fun deleteSession() = dataStore.edit { it.clear() }
+
     companion object {
         @Volatile
         private var INSTANCE: UserPreferences? = null

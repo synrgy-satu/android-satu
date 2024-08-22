@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
     fun login(email: String, password: String) = userRepository.login(email, password)
     fun getUserLogin() = userRepository.getSession()
-    fun deleteUserLogin() = viewModelScope.launch { userRepository.deleteSession() }
-
+    suspend fun deleteUserLogin() {
+        userRepository.deleteSession()
+    }
 }

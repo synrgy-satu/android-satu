@@ -72,8 +72,9 @@ class UserRepository private constructor(
 
     suspend fun saveSession(data: DataUser) = userPref.saveSession(data)
     fun getSession(): LiveData<DataUser> = userPref.getSession().asLiveData()
-    suspend fun deleteSession() = userPref.deleteSession()
-
+    suspend fun deleteSession() {
+        userPref.deleteSession()
+    }
 
     fun getUser(token: String) = liveData {
         emit(Result.Loading)

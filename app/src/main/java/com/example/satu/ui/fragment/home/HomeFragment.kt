@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.satu.R
 import com.example.satu.data.model.response.auth.DataUser
 import com.example.satu.data.model.response.user.DataCurrentUser
@@ -27,10 +28,13 @@ import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.UserViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.example.satu.utils.Result
+import kotlinx.coroutines.launch
+
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var tokenUser: DataUser
+    private var isSaldoVisible: Boolean = false
     private val viewModel: LoginViewModel by viewModels {
         AuthViewModelFactory.getInstance(requireActivity().application)
     }
@@ -43,7 +47,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        setupViews()
+
         return binding.root
     }
 
@@ -64,11 +68,25 @@ class HomeFragment : Fragment() {
 
     private fun showUserProfile(userProfile: DataCurrentUser) {
         with(binding) {
+            val nominalAsli = userProfile.rekenings?.get(0)?.balance.toString()
+            val bintang = "*********"  // 9 bintang untuk menutupi saldo
+
             tvNamaLengkap.text = userProfile.fullName.toString()
-            tvNominal.text = userProfile.rekenings?.get(0)?.balance.toString()
+            tvNominal.text = bintang  // Default: sembunyikan saldo
             tvRekening.text = userProfile.rekenings?.get(0)?.rekeningNumber.toString()
+
             btnSalinRekening.setOnClickListener {
                 salinRekeningKeClipboard(tvRekening.text.toString())
+            }
+
+            btnLihatSaldo.setOnClickListener {
+                // Toggle visibilitas saldo
+                isSaldoVisible = !isSaldoVisible
+                tvNominal.text = if (isSaldoVisible) nominalAsli else bintang
+
+                // Optional: Ubah ikon mata tergantung pada status visibilitas
+                val iconResId = if (isSaldoVisible) R.drawable.ic_eye_lihat else R.drawable.ic_eye_lihat
+                btnLihatSaldo.setBackgroundResource(iconResId)
             }
         }
     }
@@ -84,7 +102,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setupViews()
         binding.fiturMutasi.setOnClickListener {
             val intent = Intent(activity, MutationActivity::class.java)
             startActivity(intent)
@@ -133,6 +151,7 @@ class HomeFragment : Fragment() {
         val noButton = customDialogView.findViewById<Button>(R.id.btnno)
         yesButton.setOnClickListener {
             handleYesButtonClick()
+            alertDialog.dismiss()
         }
         noButton.setOnClickListener {
             alertDialog.dismiss()
@@ -145,13 +164,32 @@ class HomeFragment : Fragment() {
             .create()
     }
     private fun handleYesButtonClick() {
-        viewModel.deleteUserLogin()
-        startActivity(Intent(requireContext(), OnBoardingNewUserActivity::class.java))
-        requireActivity().finish()
+        lifecycleScope.launch {
+            // Menunggu hingga deleteUserLogin() selesai
+            viewModel.deleteUserLogin()
+
+            // Menghapus password dari SharedPreferences
+            clearPasswordFromSharedPreferences()
+
+            // Pindah ke aktivitas baru setelah operasi selesai
+            startActivity(Intent(requireContext(), OnBoardingNewUserActivity::class.java))
+            requireActivity().finish()
+
+        }
     }
+    private fun clearPasswordFromSharedPreferences() {
+        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            remove("user_password") // Menghapus data password
+            apply() // Terapkan perubahan
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        userViewModel.getUser(tokenUser.accessToken ?: "").removeObservers(viewLifecycleOwner)
+
     }
 }
