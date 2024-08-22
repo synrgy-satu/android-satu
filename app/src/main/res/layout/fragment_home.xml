@@ -78,10 +78,10 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_text2"
+                    android:id="@+id/tv_nama_lengkap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Lengkap Anda"
+                    android:text=""
                     android:contentDescription="Nama kamu"
                     android:fontFamily="@font/opensans_semibold"
                     android:textColor="@color/ColorPrimary"
@@ -135,7 +135,7 @@
                         android:id="@+id/tv_nominal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="*********"
+                        android:text=""
                         android:textStyle="bold"
                         android:layout_gravity="center"
                         android:contentDescription="Nominal sando anda"
@@ -173,7 +173,7 @@
                     android:id="@+id/tv_rekening"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2314712461030"
+                    android:text=""
                     android:contentDescription="Nomor rekening anda"
                     android:textStyle="bold"
                     android:fontFamily="@font/opensans_semibold"

@@ -73,6 +73,21 @@ class UserRepository private constructor(
     suspend fun saveSession(data: DataUser) = userPref.saveSession(data)
     fun getSession(): LiveData<DataUser> = userPref.getSession().asLiveData()
     suspend fun deleteSession() = userPref.deleteSession()
+
+
+    fun getUser(token: String) = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getUser("Bearer $token")
+            emit(Result.Success(response))
+        }catch (e: HttpException) {
+            emit(handleHttpException(e))
+        } catch (exception: IOException) {
+            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+        } catch (exception: Exception) {
+            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+        }
+    }
     companion object {
         @Volatile
         private var instance: UserRepository? = null

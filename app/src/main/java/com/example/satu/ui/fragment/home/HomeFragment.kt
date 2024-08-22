@@ -1,5 +1,8 @@
 package com.example.satu.ui.fragment.home
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import com.example.satu.R
+import com.example.satu.data.model.response.auth.DataUser
+import com.example.satu.data.model.response.user.DataCurrentUser
+import com.example.satu.data.model.response.user.UserResponse
 import com.example.satu.databinding.FragmentHomeBinding
 import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.maintance.MaintanceActivity
@@ -17,12 +24,18 @@ import com.example.satu.ui.activities.mutation.DateRangeViewModel
 import com.example.satu.ui.activities.mutation.MutationActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
+import com.example.satu.ui.viewmodel.UserViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
+import com.example.satu.utils.Result
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var tokenUser: DataUser
     private val viewModel: LoginViewModel by viewModels {
+        AuthViewModelFactory.getInstance(requireActivity().application)
+    }
+
+    private val userViewModel: UserViewModel by viewModels {
         AuthViewModelFactory.getInstance(requireActivity().application)
     }
     override fun onCreateView(
@@ -30,8 +43,38 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setupViews()
         return binding.root
     }
+
+    private fun setupViews() {
+        userViewModel.getToken().observe(viewLifecycleOwner) {
+            tokenUser = it
+            tokenUser.accessToken?.let { token -> userViewModel.getUser(token).observe(viewLifecycleOwner, ::handleDataUser) }
+        }
+    }
+    private fun handleDataUser(result: Result<UserResponse>) {
+        when (result) {
+            is Result.Loading -> return
+            is Result.Success -> result.data.data?.let { showUserProfile(it) }
+            is Result.Error -> showToast(result.error)
+        }
+    }
+
+
+    private fun showUserProfile(userProfile: DataCurrentUser) {
+        with(binding) {
+            tvNamaLengkap.text = userProfile.fullName.toString()
+            tvNominal.text = userProfile.rekenings?.get(0)?.balance.toString()
+            tvRekening.text = userProfile.rekenings?.get(0)?.rekeningNumber.toString()
+            btnSalinRekening.setOnClickListener {
+                salinRekeningKeClipboard(tvRekening.text.toString())
+            }
+        }
+    }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -74,6 +117,9 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
     private fun showLogoutDialog() {
         val customDialogView = LayoutInflater.from(requireContext()).inflate(R.layout.alert_dialog_logout, null)
         val alertDialog = buildAlertDialog(customDialogView)

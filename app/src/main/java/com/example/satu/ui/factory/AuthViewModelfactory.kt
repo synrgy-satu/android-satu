@@ -7,6 +7,7 @@ import com.example.satu.data.repository.UserRepository
 import com.example.satu.di.Injection
 import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.RegisterViewModel
+import com.example.satu.ui.viewmodel.UserViewModel
 
 class AuthViewModelFactory private constructor(private val userRepository: UserRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -17,6 +18,8 @@ class AuthViewModelFactory private constructor(private val userRepository: UserR
                 LoginViewModel(userRepository) as T
             modelClass.isAssignableFrom(RegisterViewModel::class.java) ->
                 RegisterViewModel(userRepository) as T
+            modelClass.isAssignableFrom(UserViewModel::class.java) ->
+                UserViewModel(userRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
     companion object {
