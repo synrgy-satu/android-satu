@@ -1,5 +1,6 @@
 package com.example.satu.ui
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
@@ -9,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.satu.R
 import com.example.satu.databinding.ActivityMainBinding
+import com.example.satu.ui.activities.qris.QrisActivity
 import com.example.satu.ui.activities.qris.QrisFragment
 import com.example.satu.ui.fragment.home.HomeFragment
 import com.example.satu.ui.fragment.notification.NotifikasiFragment
@@ -31,7 +33,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.beranda -> loadFragment(HomeFragment())
                 R.id.tabungan -> loadFragment(TabunganFragment())
                 R.id.notifikasi -> loadFragment(NotifikasiFragment())
-                R.id.qris -> loadFragment(QrisFragment())
+                R.id.qris -> {
+                    val intent = Intent(this, QrisActivity::class.java)
+                    startActivity(intent)
+                }
                 R.id.akun -> loadFragment(ProfileFragment())
             }
             true

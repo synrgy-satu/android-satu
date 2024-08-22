@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.qris.QrisFragment">
+    tools:context=".ui.activities.qris.QrisActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
