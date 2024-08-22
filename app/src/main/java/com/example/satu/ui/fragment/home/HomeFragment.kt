@@ -72,6 +72,12 @@ class HomeFragment : Fragment() {
             }
         }
     }
+    private fun salinRekeningKeClipboard(rekeningNumber: String) {
+        val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Nomor Rekening", rekeningNumber)
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(requireContext(), "Nomor rekening tersalin", Toast.LENGTH_SHORT).show()
+    }
 
 
 
