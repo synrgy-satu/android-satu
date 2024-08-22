@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.transfer.TransferAddNewRekeningActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.transfer.TransferBcaActivity"
             android:exported="false" />
         <activity

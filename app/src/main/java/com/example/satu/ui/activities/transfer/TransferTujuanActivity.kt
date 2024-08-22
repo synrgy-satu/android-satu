@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityTransferTujuanBinding
+import com.example.satu.ui.MainActivity
 
 class TransferTujuanActivity : AppCompatActivity() {
     private lateinit var binding : ActivityTransferTujuanBinding
@@ -22,6 +23,9 @@ class TransferTujuanActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding){
         btnTfBca.setOnClickListener {
             startActivity(Intent(this@TransferTujuanActivity, TransferBcaActivity::class.java))
+        }
+        topAppBar.setOnClickListener {
+            startActivity(Intent(this@TransferTujuanActivity, MainActivity::class.java))
         }
     }
 }

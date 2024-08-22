@@ -7,25 +7,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
+import com.example.satu.databinding.ActivityTransferAddNewRekeningBinding
 import com.example.satu.databinding.ActivityTransferBcaActivituBinding
-import com.example.satu.databinding.ActivityTransferTujuanBinding
 
-class TransferBcaActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityTransferBcaActivituBinding
+class TransferAddNewRekeningActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityTransferAddNewRekeningBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTransferBcaActivituBinding.inflate(layoutInflater)
+        binding = ActivityTransferAddNewRekeningBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupClickListeners()
     }
 
     private fun setupClickListeners() = with(binding){
-        btnAdd.setOnClickListener {
-            startActivity(Intent(this@TransferBcaActivity, TransferAddNewRekeningActivity::class.java))
+        btnNext.setOnClickListener {
+            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferBcaActivity::class.java))
         }
         topAppBar.setOnClickListener {
-            startActivity(Intent(this@TransferBcaActivity, TransferTujuanActivity::class.java))
+            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferTujuanActivity::class.java))
         }
     }
 }

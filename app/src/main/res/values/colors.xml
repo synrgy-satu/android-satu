@@ -8,4 +8,5 @@
     <color name="light_gray">#8B8B8B</color>
     <color name="primary">#333999</color>
     <color name="disable">#DADADA</color>
+    <color name="light_primary">#ECEDF9</color>
 </resources>

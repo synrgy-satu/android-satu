@@ -190,7 +190,6 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        userViewModel.getUser(tokenUser.accessToken ?: "").removeObservers(viewLifecycleOwner)
 
     }
 }
