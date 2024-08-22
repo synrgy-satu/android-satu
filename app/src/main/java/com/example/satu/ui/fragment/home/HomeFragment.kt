@@ -23,6 +23,7 @@ import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserA
 import com.example.satu.ui.activities.maintance.MaintanceActivity
 import com.example.satu.ui.activities.mutation.DateRangeViewModel
 import com.example.satu.ui.activities.mutation.MutationActivity
+import com.example.satu.ui.activities.transfer.TransferTujuanActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.UserViewModel
@@ -128,7 +129,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         binding.fiturTransfer.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
+            val intent = Intent(activity, TransferTujuanActivity::class.java)
             startActivity(intent)
         }
         binding.btnRekening.setOnClickListener {
