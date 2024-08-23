@@ -4,6 +4,7 @@ import MutationVerificationFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.satu.R
+import com.example.satu.profile.ProfileFragment
 
 class MutationActivity : AppCompatActivity() {
 

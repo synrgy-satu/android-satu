@@ -24,7 +24,7 @@ class AccountSourceBottomSheetFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = view.findViewById(R.id.rvSourceAccounts)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
+        viewModel.setContext(requireContext()) // Pass the Context
         viewModel.accounts.observe(viewLifecycleOwner) { accounts ->
             val adapter = AccountSourceAdapter(accounts) { account ->
                 // Handle item click
