@@ -70,6 +70,7 @@ class TransferNowActivity : AppCompatActivity() {
             }
             val intent = Intent(this@TransferNowActivity, TransferConfirmationActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
     private fun showSnackBar(message: String) {
