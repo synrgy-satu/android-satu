@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#333999</color>
     <color name="disable">#DADADA</color>
-    DADADA
+    <color name="green">#00C614</color>
+    <color name="red">#F24E1E</color>
 </resources>

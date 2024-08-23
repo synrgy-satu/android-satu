@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -19,20 +20,21 @@
             android:orientation="vertical">
 
             <RadioGroup
-                android:layout_marginTop="20dp"
+
                 android:id="@+id/radioGroupDateRange"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:contentDescription="@string/description_hari_ini"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/tvTodayPeriode"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvTodayDateRange"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="@string/hari_ini"
@@ -54,23 +56,25 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:contentDescription="@string/description_tujuh_hari_terakhir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/tv7DaysPeriode"
+                        android:id="@+id/tv7DaysDateRange"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tujuh_hari_terakhir"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/rb7DaysDateRange"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:gravity="start|center_vertical"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="8dp"/>
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/tujuh_hari_terakhir"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/rb7DaysDateRange"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                     <RadioButton
                         android:id="@+id/rb7DaysDateRange"
                         android:layout_width="wrap_content"
@@ -82,25 +86,82 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:contentDescription="@string/description_bulan_ini"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/tv30DaysPeriode"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvCurrentMonth"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/tigapuluh_hari_terakhir"
+                        android:text="Juli 2024"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/rb30DaysDateRange"
+                        app:layout_constraintEnd_toStartOf="@id/rbCurrentMonth"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:gravity="start|center_vertical"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="8dp"/>
                     <RadioButton
-                        android:id="@+id/rb30DaysDateRange"
+                        android:id="@+id/rbCurrentMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="end|center_vertical"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:contentDescription="@string/description_bulan_sebelum_bulan_ini"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvCurrentMonthMin1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Juni 2024"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/rbCurrentMonthMin1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="start|center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"/>
+                    <RadioButton
+                        android:id="@+id/rbCurrentMonthMin1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="end|center_vertical"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:contentDescription="@string/description_dua_bulan_sebelum_bulan_ini"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvCurrentMonthMin2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Mei 2024"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/rbCurrentMonthMin2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="start|center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"/>
+                    <RadioButton
+                        android:id="@+id/rbCurrentMonthMin2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -109,23 +170,143 @@
                         android:gravity="end|center_vertical"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:contentDescription="@string/description_pilih_periode_tangga_awal_dan_tanggal_akhir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:id="@+id/tvChooseDateRange"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pilih_tanggal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/rbChooseDateRange"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="start|center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"/>
+                    <RadioButton
+                        android:id="@+id/rbChooseDateRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="end|center_vertical"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </RadioGroup>
 
-
-            <TextView
-                android:layout_marginTop="10dp"
+            <LinearLayout
+                android:id="@+id/llChooseRangeDateLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/rentang_maksimum_periode"
-                android:textColor="@color/black"
-                android:fontFamily="@font/open_sans"
-                android:textSize="12sp"
-                android:layout_marginHorizontal="15dp"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:background="@drawable/cardview_border"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <com.google.android.material.textview.MaterialTextView
+                            android:paddingTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/open_sans"
+                            android:text="Tanggal mulai"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:drawablePadding="10dp"
+                            android:textAlignment="textStart"
+                            android:layout_weight="1"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvStartDateRangeSheetLayout"
+                                android:paddingVertical="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:text="11 Juni 2024"
+                                android:drawableEnd="@drawable/ic_down"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/open_sans"
+                                android:layout_weight="1"
+                                android:paddingRight="10dp"/>
 
+                        </LinearLayout>
 
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-
+                <androidx.cardview.widget.CardView
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:background="@drawable/cardview_border"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <com.google.android.material.textview.MaterialTextView
+                            android:paddingTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/open_sans"
+                            android:text="Tanggal selesai"
+                            android:paddingLeft="10dp"
+                            android:textSize="14sp"
+                            android:drawablePadding="10dp"
+                            android:textAlignment="textStart"
+                            android:layout_weight="1"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvEndDateRangeSheetLayout"
+                                android:paddingVertical="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:text="12 Juni 2024"
+                                android:drawableEnd="@drawable/ic_down"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/open_sans"
+                                android:layout_weight="1"
+                                android:paddingRight="10dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rentang_maksimum_cek_periode_mutasi"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="12sp"
+                    android:layout_marginHorizontal="10dp"/>
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:contentDescription="@string/description_pilih"

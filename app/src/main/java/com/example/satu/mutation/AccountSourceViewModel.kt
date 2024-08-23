@@ -1,7 +1,17 @@
 package com.example.satu.mutation
+
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.satu.mutation.network.Config
+import com.example.satu.mutation.network.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class AccountSourceViewModel : ViewModel() {
 
@@ -9,10 +19,47 @@ class AccountSourceViewModel : ViewModel() {
     val accounts: LiveData<List<AccountSource>> get() = _accounts
 
     init {
-        // Create dummy data
-        _accounts.value = listOf(
-            AccountSource("1000 8310 4396 312", "Account A", "Saver+"),
-            AccountSource("2000 9210 4396 413", "Account B", "Prioritas")
-        )
+        fetchAccountSources()
+    }
+
+    private fun fetchAccountSources() {
+        val token = Config.getBearerToken()
+
+        RetrofitClient.apiService.getAccountSources(token).enqueue(object : Callback<ApiResponse<List<AccountSourceResponse>>> {
+            override fun onResponse(
+                call: Call<ApiResponse<List<AccountSourceResponse>>>,
+                response: Response<ApiResponse<List<AccountSourceResponse>>>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.data?.let { data ->
+                        _accounts.value = data.map { it.toAccountSource() }
+                    }
+                } else {
+                    // Handle non-successful response
+                }
+            }
+
+            override fun onFailure(call: Call<ApiResponse<List<AccountSourceResponse>>>, t: Throwable) {
+                // Handle error
+                _accounts.postValue(emptyList())  // Clear the data or handle it as needed
+                t.localizedMessage?.let { message ->
+                    context?.let {
+                        // Format the current date and time
+                        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                        val dateTimeNow = dateFormat.format(System.currentTimeMillis())
+
+                        // Create the Toast message with date and time
+                        val toastMessage = "Error: $message\nOccurred at: $dateTimeNow"
+                        Toast.makeText(it, toastMessage, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        })
+    }
+
+    // You might need a reference to a Context, pass it via the constructor or another method
+    private var context: Context? = null
+    fun setContext(context: Context) {
+        this.context = context
     }
 }
