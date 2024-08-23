@@ -37,4 +37,8 @@ interface ApiService {
     suspend fun getCardRekening(
         @Path("rekeningNumber") rekeningNUmber: Long
     ): CardResponse
+
+    @Headers("Content-Type: application/json")
+    @POST("action/transfer")
+    suspend fun addTransfer(@Body request: TransferRequest): TransferResponse
 }
