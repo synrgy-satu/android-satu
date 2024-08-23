@@ -20,6 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
+            android:contentDescription="@string/tombol_back"
             app:title="Transfer ke Rekening BCA"
             app:titleTextColor="@color/white"
             app:titleTextAppearance="@style/ToolbarTitleText" />
@@ -46,6 +47,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:hint="Masukkan nomor rekening"
+        android:contentDescription="Edit Teks Masukkan nomor rekening"
         android:background="@color/light_primary"
         android:paddingVertical="12dp"
         android:paddingHorizontal="14dp"
@@ -63,6 +65,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="Tombol Lanjutkan"
         android:background="@drawable/shape_button"
         android:text="Lanjutkan"/>
 

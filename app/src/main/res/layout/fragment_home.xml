@@ -208,7 +208,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
                     <ImageView
-
                         android:id="@+id/btn_rekening"
                         android:layout_width="190dp"
                         android:layout_height="60dp"
@@ -217,13 +216,30 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/layoutItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_kotak">
+
+                <include
+                    layout="@layout/item_dialog_saver" />
+
+                <include
+                    layout="@layout/item_dialog_premium" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/kotak_fitur_nih"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/card_kotak"
+                app:layout_constraintTop_toBottomOf="@+id/layoutItems"
                 app:layout_constraintStart_toStartOf="parent"
                 >
                 <LinearLayout

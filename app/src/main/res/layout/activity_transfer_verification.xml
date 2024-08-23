@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:contentDescription="tombol kembali"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:title="Verifikasi"
             app:titleTextColor="@color/white"
@@ -42,6 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="PIN Transaksi"
+        android:contentDescription="pin transaksi"
         android:fontFamily="@font/opensans_bold"
         android:textSize="16sp"
         android:gravity="center" />
@@ -54,6 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Silakan masukkan PIN Anda"
+        android:contentDescription="silahkan masukan pin anda"
         android:fontFamily="@font/opensans_semibold"
         android:textSize="14sp"
         android:gravity="center" />

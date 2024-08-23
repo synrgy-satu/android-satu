@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:contentDescription="tombol kembali"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:title="Transfer"
             app:titleTextAppearance="@style/ToolbarTitleText"
@@ -26,7 +27,7 @@
 
     <LinearLayout
         android:foreground="?android:attr/selectableItemBackground"
-
+        android:contentDescription="Transfer ke rekening bca"
         android:id="@+id/btnTfBca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,8 +85,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="transfer ke bank lain"
         android:foreground="?android:attr/selectableItemBackground"
-
         android:orientation="horizontal"
         android:padding="20dp">
 
@@ -137,6 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="virtual account"
         android:foreground="?android:attr/selectableItemBackground"
         android:orientation="horizontal"
         android:padding="20dp">

@@ -20,6 +20,7 @@
             android:background="?attr/colorPrimary"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:title="Transfer ke Rekening BCA"
+            android:contentDescription="@string/tombol_back"
             app:titleTextColor="@color/white"
             app:titleTextAppearance="@style/ToolbarTitleText" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -40,6 +41,7 @@
         android:layout_height="wrap_content"
         app:queryHint="Cari Tujuan Transfer"
         android:background="@drawable/shape_search"
+        android:contentDescription="Cari Rekening"
         android:layout_margin="16dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -49,6 +51,7 @@
         android:background="@drawable/shape_button"
         android:layout_marginHorizontal="16dp"
         android:text="Transfer Ke Tujuan Baru"
+        android:contentDescription="Tombol Transfer ke tujuan baru"
         android:fontFamily="@font/opensans_semibold"
         android:textSize="14sp"/>
 
