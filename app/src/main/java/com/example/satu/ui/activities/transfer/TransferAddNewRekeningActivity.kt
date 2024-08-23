@@ -22,7 +22,7 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
 
     private fun setupClickListeners() = with(binding){
         btnNext.setOnClickListener {
-            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferBcaActivity::class.java))
+            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferConfirmationActivity::class.java))
         }
         topAppBar.setOnClickListener {
             startActivity(Intent(this@TransferAddNewRekeningActivity, TransferTujuanActivity::class.java))

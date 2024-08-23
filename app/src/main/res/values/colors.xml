@@ -9,4 +9,5 @@
     <color name="primary">#333999</color>
     <color name="disable">#DADADA</color>
     <color name="light_primary">#ECEDF9</color>
+    <color name="dark_grey">#4D4D4D</color>
 </resources>
