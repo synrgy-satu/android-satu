@@ -19,13 +19,13 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupClickListeners()
     }
-
+    // kasih kondisi kalo misal dia ngii nomor rekneingnya sendiri maka ga bisa lanjut
     private fun setupClickListeners() = with(binding){
         btnNext.setOnClickListener {
-            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferConfirmationActivity::class.java))
+            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferNowActivity::class.java))
         }
         topAppBar.setOnClickListener {
-            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferTujuanActivity::class.java))
+            startActivity(Intent(this@TransferAddNewRekeningActivity, TransferBcaActivity::class.java))
         }
     }
 }

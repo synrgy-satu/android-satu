@@ -70,10 +70,10 @@ class HomeFragment : Fragment() {
     private fun showUserProfile(userProfile: DataCurrentUser) {
         with(binding) {
             val nominalAsli = userProfile.rekenings?.get(0)?.balance.toString()
-            val bintang = "*********"  // 9 bintang untuk menutupi saldo
+            val bintang = "*********"
 
             tvNamaLengkap.text = userProfile.fullName.toString()
-            tvNominal.text = bintang  // Default: sembunyikan saldo
+            tvNominal.text = bintang
             tvRekening.text = userProfile.rekenings?.get(0)?.rekeningNumber.toString()
 
             btnSalinRekening.setOnClickListener {
@@ -81,16 +81,34 @@ class HomeFragment : Fragment() {
             }
 
             btnLihatSaldo.setOnClickListener {
-                // Toggle visibilitas saldo
                 isSaldoVisible = !isSaldoVisible
                 tvNominal.text = if (isSaldoVisible) nominalAsli else bintang
-
-                // Optional: Ubah ikon mata tergantung pada status visibilitas
                 val iconResId = if (isSaldoVisible) R.drawable.ic_eye_lihat else R.drawable.ic_eye_lihat
                 btnLihatSaldo.setBackgroundResource(iconResId)
             }
+
+            val fullName =  userProfile.fullName.toString()
+            val rekeningNumber = userProfile.rekenings?.get(0)?.rekeningNumber.toString()
+            val cardNumber = userProfile.rekenings?.get(0)?.cardNumber.toString()
+            val balance = userProfile.rekenings?.get(0)?.balance.toString()
+            val pin = userProfile.pin.toString()
+            saveToSharedPreferences(fullName, rekeningNumber, cardNumber, balance, pin)
+
         }
     }
+
+    private fun saveToSharedPreferences(fullName: String, rekeningNumber: String, cardNumber: String, balance: String, pin: String) {
+        val sharedPref = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString("full_name", fullName)
+            putString("rekening_number", rekeningNumber)
+            putString("card_number", cardNumber)
+            putString("balance", balance)
+            putString("pin", pin)
+            apply()
+        }
+    }
+
     private fun salinRekeningKeClipboard(rekeningNumber: String) {
         val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("Nomor Rekening", rekeningNumber)
@@ -181,9 +199,16 @@ class HomeFragment : Fragment() {
     private fun clearPasswordFromSharedPreferences() {
         val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         with(sharedPreferences.edit()) {
-            remove("user_password") // Menghapus data password
-            apply() // Terapkan perubahan
+            remove("user_password")
+            apply()
         }
+        val sharedPref = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
+
+        with(sharedPref.edit()) {
+            clear()
+            apply()
+        }
+
     }
 
 
