@@ -184,13 +184,8 @@ class HomeFragment : Fragment() {
     }
     private fun handleYesButtonClick() {
         lifecycleScope.launch {
-            // Menunggu hingga deleteUserLogin() selesai
             viewModel.deleteUserLogin()
-
-            // Menghapus password dari SharedPreferences
             clearPasswordFromSharedPreferences()
-
-            // Pindah ke aktivitas baru setelah operasi selesai
             startActivity(Intent(requireContext(), OnBoardingNewUserActivity::class.java))
             requireActivity().finish()
 

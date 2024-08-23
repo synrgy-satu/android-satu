@@ -34,6 +34,6 @@ interface ApiService {
 
     @GET("card/{rekeningNumber}")
     suspend fun getCardRekening(
-        @Path("rekeningNumber") rekeningNUmber: String
+        @Path("rekeningNumber") rekeningNUmber: Long
     ): UserResponse
 }

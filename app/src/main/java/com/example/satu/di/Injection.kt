@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.satu.api.ApiConfig
 import com.example.satu.data.local.UserPreferences
 import com.example.satu.data.local.dataStore
+import com.example.satu.data.repository.TransferRepository
 import com.example.satu.data.repository.UserRepository
 
 object Injection {
@@ -13,4 +14,6 @@ object Injection {
     fun provideUserRepository(application: Application) =
         UserRepository.getInstance(provideApiService(), application, provideUserPreferences(application))
 
+    fun provideTransferRepository(application: Application) =
+        TransferRepository.getInstance(provideApiService(), application)
 }
