@@ -141,6 +141,11 @@ class HomeFragment : Fragment() {
             togglePopupItems()
         }
 
+        binding.layoutItems.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+
          binding.fiturMutasi.setOnClickListener {
             val intent = Intent(activity, MutationActivity::class.java)
             startActivity(intent)
