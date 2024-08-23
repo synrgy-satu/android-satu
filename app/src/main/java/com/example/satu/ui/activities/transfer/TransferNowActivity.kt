@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityTransferAddNewRekeningBinding
 import com.example.satu.databinding.ActivityTransferNowBinding
+import com.example.satu.utils.SnackbarUtils
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -42,7 +43,36 @@ class TransferNowActivity : AppCompatActivity() {
 
     private fun setupClickListeners() = with(binding){
         topAppBar.setOnClickListener {
-            startActivity(Intent(this@TransferNowActivity, TransferBcaActivity::class.java))
+            startActivity(Intent(this@TransferNowActivity, TransferAddNewRekeningActivity::class.java))
+        }
+        btnNext.setOnClickListener {
+            // Validate inputs
+            val nominalText = etNominal.text.toString()
+            val catatanText = etCatatan.text.toString()
+
+            if (nominalText.isEmpty()) {
+                showSnackBar("Inputan nominal wajib diisi")
+                return@setOnClickListener
+            }
+
+            val nominal = nominalText.toDoubleOrNull()
+            if (nominal == null) {
+                showSnackBar( "Nominal harus berupa angka")
+                return@setOnClickListener
+            }
+
+            val sharedPref = getSharedPreferences("UserTransfer", Context.MODE_PRIVATE)
+            with(sharedPref.edit()) {
+                putString("nominal", nominalText)
+                putString("catatan", catatanText)
+                apply()
+            }
+            val intent = Intent(this@TransferNowActivity, TransferConfirmationActivity::class.java)
+            startActivity(intent)
         }
     }
+    private fun showSnackBar(message: String) {
+        SnackbarUtils.showWithDismissAction(binding.root, message)
+    }
+
 }

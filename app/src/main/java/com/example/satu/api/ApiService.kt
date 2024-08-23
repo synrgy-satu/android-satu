@@ -6,6 +6,7 @@ import com.example.satu.data.model.request.auth.RegisterRequest
 import com.example.satu.data.model.response.auth.CardCheckResponse
 import com.example.satu.data.model.response.auth.LoginResponse
 import com.example.satu.data.model.response.auth.RegisterResponse
+import com.example.satu.data.model.response.transfer.CardResponse
 import com.example.satu.data.model.response.user.UserResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -35,5 +36,5 @@ interface ApiService {
     @GET("card/{rekeningNumber}")
     suspend fun getCardRekening(
         @Path("rekeningNumber") rekeningNUmber: Long
-    ): UserResponse
+    ): CardResponse
 }

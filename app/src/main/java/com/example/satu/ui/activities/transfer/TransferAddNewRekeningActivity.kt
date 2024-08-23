@@ -7,15 +7,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.R
+import com.example.satu.data.model.response.transfer.DataCardRekening
 import com.example.satu.databinding.ActivityTransferAddNewRekeningBinding
-import com.example.satu.databinding.ActivityTransferBcaActivituBinding
-import com.example.satu.ui.activities.auth.newuser.login.LoginSuccessActivity
-import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.factory.TransferViewModelfactory
-import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.TransferViewModel
 import com.example.satu.utils.ProgressDialogUtils
 import com.example.satu.utils.Result
@@ -46,7 +40,7 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
                    viewModel.getCardRekening(it1).observe(this@TransferAddNewRekeningActivity) { result ->
                        when (result) {
                            is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferAddNewRekeningActivity)
-                           is Result.Success -> onLoginSuccess()
+                           is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
                            is Result.Error -> onLoginError(result.error)
                        }
                    }
@@ -71,7 +65,14 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
         }
     }
 
-    private fun onLoginSuccess() {
+    private fun onLoginSuccess(data: DataCardRekening) {
+        val namarekeningtujuan = data.name
+        val sharedPref = getSharedPreferences("UserTransferRekening", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString("targetRekeningNumber", rekening)
+            putString("namaRekeningTujuan", namarekeningtujuan)
+            apply()
+        }
         ProgressDialogUtils.hideProgressDialog()
         startActivity(Intent(this@TransferAddNewRekeningActivity, TransferNowActivity::class.java))
 
