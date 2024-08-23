@@ -42,5 +42,7 @@ interface ApiService {
 
     @Headers("Content-Type: application/json")
     @POST("action/transfer")
-    suspend fun addTransfer(@Body request: TransferRequest): TransferResponse
+    suspend fun addTransfer(
+        @Header("Authorization") token: String,
+        @Body request: TransferRequest): TransferResponse
 }

@@ -44,6 +44,7 @@ class TransferNowActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding){
         topAppBar.setOnClickListener {
             startActivity(Intent(this@TransferNowActivity, TransferAddNewRekeningActivity::class.java))
+            finish()
         }
         btnNext.setOnClickListener {
             // Validate inputs

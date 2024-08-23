@@ -55,7 +55,10 @@ class HomeFragment : Fragment() {
     private fun setupViews() {
         userViewModel.getToken().observe(viewLifecycleOwner) {
             tokenUser = it
-            tokenUser.accessToken?.let { token -> userViewModel.getUser(token).observe(viewLifecycleOwner, ::handleDataUser) }
+            tokenUser.accessToken?.let { token ->
+                userViewModel.getUser(token).observe(viewLifecycleOwner, ::handleDataUser)
+                saveToSharedPreferencesToken(token)
+            }
         }
     }
     private fun handleDataUser(result: Result<UserResponse>) {
@@ -105,6 +108,14 @@ class HomeFragment : Fragment() {
             putString("card_number", cardNumber)
             putString("balance", balance)
             putString("pin", pin)
+            apply()
+        }
+    }
+
+    private fun saveToSharedPreferencesToken(token: String) {
+        val sharedPref = requireContext().getSharedPreferences("UserToken", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString("token", token)
             apply()
         }
     }
@@ -200,6 +211,13 @@ class HomeFragment : Fragment() {
         val sharedPref = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
 
         with(sharedPref.edit()) {
+            clear()
+            apply()
+        }
+
+        val sharedPrefToken = requireContext().getSharedPreferences("UserToken", Context.MODE_PRIVATE)
+
+        with(sharedPrefToken.edit()) {
             clear()
             apply()
         }

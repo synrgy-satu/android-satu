@@ -53,10 +53,12 @@ class TransferConfirmationActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding){
         topAppBar.setOnClickListener {
             startActivity(Intent(this@TransferConfirmationActivity, TransferNowActivity::class.java))
+            finish()
         }
 
         btnConfirm.setOnClickListener {
             startActivity(Intent(this@TransferConfirmationActivity, TransferVerificationActivity::class.java))
+            finish()
         }
     }
 }

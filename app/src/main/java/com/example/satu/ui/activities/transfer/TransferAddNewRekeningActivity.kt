@@ -49,6 +49,7 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
         }
         topAppBar.setOnClickListener {
             startActivity(Intent(this@TransferAddNewRekeningActivity, TransferBcaActivity::class.java))
+            finish()
         }
     }
 
@@ -75,7 +76,7 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
         }
         ProgressDialogUtils.hideProgressDialog()
         startActivity(Intent(this@TransferAddNewRekeningActivity, TransferNowActivity::class.java))
-
+        finish()
     }
     private fun onLoginError(errorMessage: String) {
         ProgressDialogUtils.hideProgressDialog()

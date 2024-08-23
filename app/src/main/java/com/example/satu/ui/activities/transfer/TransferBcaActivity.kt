@@ -23,9 +23,11 @@ class TransferBcaActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding){
         btnAdd.setOnClickListener {
             startActivity(Intent(this@TransferBcaActivity, TransferAddNewRekeningActivity::class.java))
+            finish()
         }
         topAppBar.setOnClickListener {
             startActivity(Intent(this@TransferBcaActivity, TransferTujuanActivity::class.java))
+            finish()
         }
     }
 }

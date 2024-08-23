@@ -7,12 +7,14 @@ class TransferViewModel(private val transferRepository: TransferRepository) : Vi
     fun getCardRekening(rekeningNumber: Long) = transferRepository.getCardRekening(rekeningNumber)
 
     fun addTransfer(
+        token: String,
         debitedRekeningNumber: Long,
         targetRekeningNumber: Long,
         amount: Long,
         pin: String,
         note: String
     ) = transferRepository.addTransfer(
+        token,
         debitedRekeningNumber,
         targetRekeningNumber,
         amount,

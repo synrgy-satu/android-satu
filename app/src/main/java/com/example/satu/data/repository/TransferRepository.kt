@@ -32,10 +32,10 @@ class TransferRepository private constructor(
         }
     }
 
-    fun addTransfer(debitedRekeningNumber: Long, targetRekeningNumber: Long, amount: Long, pin: String, note: String) = liveData {
+    fun addTransfer(token: String, debitedRekeningNumber: Long, targetRekeningNumber: Long, amount: Long, pin: String, note: String) = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.addTransfer(TransferRequest(debitedRekeningNumber, targetRekeningNumber, amount, pin, note))
+            val response = apiService.addTransfer("Bearer $token", TransferRequest(debitedRekeningNumber, targetRekeningNumber, amount, pin, note))
             emit(Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))

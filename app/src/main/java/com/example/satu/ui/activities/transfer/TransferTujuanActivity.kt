@@ -23,6 +23,7 @@ class TransferTujuanActivity : AppCompatActivity() {
     private fun setupClickListeners() = with(binding){
         btnTfBca.setOnClickListener {
             startActivity(Intent(this@TransferTujuanActivity, TransferBcaActivity::class.java))
+            finish()
         }
         topAppBar.setOnClickListener {
             startActivity(Intent(this@TransferTujuanActivity, MainActivity::class.java))
