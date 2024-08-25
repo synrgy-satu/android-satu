@@ -229,8 +229,6 @@
                 <include
                     layout="@layout/item_dialog_saver" />
 
-                <include
-                    layout="@layout/item_dialog_premium" />
 
             </LinearLayout>
 
