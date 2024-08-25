@@ -34,7 +34,7 @@
                 android:id="@+id/rek_saver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="****1030"
+                android:text="********"
                 android:textColor="@color/ColorPrimary"
                 android:fontFamily="@font/opensans_semibold"
                 android:textSize="14dp"
@@ -45,9 +45,9 @@
                 />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/image_premoum"
+                android:layout_width="63dp"
+                android:layout_height="12dp"
+                android:src="@drawable/imgpremium"
                 android:textColor="@color/ColorPrimary"
                 android:fontFamily="@font/opensans_semibold"
                 android:textSize="14dp"
