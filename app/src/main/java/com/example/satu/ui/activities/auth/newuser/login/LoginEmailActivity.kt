@@ -14,10 +14,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityLoginEmailBinding
-import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
-import com.example.satu.ui.activities.auth.forgotpassword.ForgotPasswordActivity
 import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.auth.newuser.register.RegisterSuccessActivity
+import com.example.satu.ui.activity.auth.ForgotPasswordActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.RegisterViewModel

@@ -57,7 +57,7 @@
             android:name=".ui.activities.loader.LoaderForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.auth.forgotpassword.ForgotPasswordActivity"
+            android:name=".ui.activity.auth.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.loader.LoaderRegisterEmailActivity"
