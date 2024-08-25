@@ -10,4 +10,6 @@
     <color name="disable">#DADADA</color>
     <color name="light_primary">#ECEDF9</color>
     <color name="dark_grey">#4D4D4D</color>
+    <color name="green">#00C614</color>
+    <color name="red">#F24E1E</color>
 </resources>
