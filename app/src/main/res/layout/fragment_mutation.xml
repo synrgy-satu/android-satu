@@ -24,6 +24,8 @@
             app:cardElevation="2dp"
             app:cardCornerRadius="10dp">
             <LinearLayout
+                android:id="@+id/llAccountSource"
+                android:contentDescription="@string/description_sumber_rekening"
                 android:background="@drawable/cardview_border"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -132,6 +134,8 @@
             app:cardElevation="2dp"
             app:cardCornerRadius="10dp">
             <LinearLayout
+                android:id="@+id/llMutationPeriode"
+                android:contentDescription="@string/description_periode_mutasi"
                 android:background="@drawable/cardview_border"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -200,6 +204,8 @@
             app:cardElevation="2dp"
             app:cardCornerRadius="10dp">
             <LinearLayout
+                android:id="@+id/llTransactionType"
+                android:contentDescription="@string/description_jenis_transaksi"
                 android:background="@drawable/cardview_border"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

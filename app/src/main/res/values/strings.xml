@@ -45,6 +45,16 @@
     <string name="description_pilih">Tombol Pilih</string>
     <string name="hari_ini">Hari ini</string>
     <string name="tujuh_hari_terakhir">7 hari terakhir</string>
+    <string name="pilih_tanggal">Pilih tanggal</string>
+    <string name="description_hari_ini">Periode hari ini</string>
+    <string name="description_tujuh_hari_terakhir">Periode 7 hari terakhir</string>
+    <string name="description_bulan_ini">Periode bulan ini</string>
+    <string name="description_bulan_sebelum_bulan_ini">Periode bulan sebelum bulan ini</string>
+    <string name="description_dua_bulan_sebelum_bulan_ini">Periode dua bulan sebelum bulan ini</string>
+    <string name="description_pilih_periode_tangga_awal_dan_tanggal_akhir">Periode tanggal awal dan tanggal akhir</string>
+    <string name="description_semua_transaksi">Semua transaksi</string>
+    <string name="description_transaksi_masuk">Transaksi masuk</string>
+    <string name="description_transaksi_keluar">Transaksi keluar</string>
     <string name="tigapuluh_hari_terakhir">30 hari terakhir</string>
     <string name="rentang_maksimum_periode">Rentang maksimum periode pemeriksaan mutasi rekening adalah 6 bulan terakhir</string>
     <string name="all">Semua</string>
@@ -52,4 +62,35 @@
     <string name="transaction_out">Transaksi keluar</string>
     <string name="pin_transaksi">PIN Transaksi</string>
     <string name="silahkan_masukan_pin">Silahkan masukan PIN Anda</string>
+    <string name="description_sumber_rekening">Pilih sumber rekening</string>
+    <string name="description_periode_mutasi">Pilih periode mutasi</string>
+    <string name="description_jenis_transaksi">Pilih jenis transaksi</string>
+    <string name="nomor_rekening">Nomor Rekening</string>
+    <string name="nama_rekening">Nama Rekening</string>
+    <string name="jenis_tabungan">Jenis Tabungan</string>
+    <string name="periode_mutasi">Periode Mutasi</string>
+    <string name="jenis_transaksi">Jenis Transaksi</string>
+    <string name="description_nomor_rekening">Informasi nomor rekening</string>
+    <string name="description_nama_rekening">Informasi nama rekening</string>
+    <string name="description_jenis_tabungan">Informasi jenis tabungan</string>
+    <string name="description_periode_mutasi_info">Informasi periode mutasi</string>
+    <string name="description_jenis_transaksi_info">Informasi jenis transaksi</string>
+    <string name="unduh">Unduh</string>
+    <string name="description_unduh">Tombol Unduh</string>
+    <string name="beranda">Beranda</string>
+    <string name="description_beranda">Tombol Beranda</string>
+    <string name="rentang_maksimum_cek_periode_mutasi">Rentang maksimum periode pemeriksaan mutasi rekening adalah 90 hari terakhir</string>
+    <string name="description_satu">Satu</string>
+    <string name="description_dua">Dua</string>
+    <string name="description_tiga">Tiga</string>
+    <string name="description_empat">Empat</string>
+    <string name="description_lima">Lima</string>
+    <string name="description_enam">Enam</string>
+    <string name="description_tujuh">Tujuh</string>
+    <string name="description_delapan">Delapan</string>
+    <string name="description_sembilan">Sembilan</string>
+    <string name="description_nol">Nol</string>
+    <string name="description_hapus">Hapus</string>
+
+
 </resources>
