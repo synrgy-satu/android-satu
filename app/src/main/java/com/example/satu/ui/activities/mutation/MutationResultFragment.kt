@@ -91,6 +91,12 @@ class MutationResultFragment : Fragment() {
             }
         }
 
+        binding.tvHome.setOnClickListener {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
         // Map transactionTypeSelected to API value
         val apiTransactionType = when (transactionTypeSelected) {
             "Transaksi keluar" -> "TRANSAKSI_KELUAR"

@@ -36,6 +36,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var tokenUser: DataUser
     private var isSaldoVisible: Boolean = false
+    private var isPopupVisible: Boolean = false
     private val viewModel: LoginViewModel by viewModels {
         AuthViewModelFactory.getInstance(requireActivity().application)
     }
@@ -127,12 +128,23 @@ class HomeFragment : Fragment() {
         Toast.makeText(requireContext(), "Nomor rekening tersalin", Toast.LENGTH_SHORT).show()
     }
 
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+
+        // Sembunyikan layout item saver dan premium pada awalnya
+        binding.layoutItems.visibility = View.GONE
+
+        // Tambahkan listener untuk btnRekening
+        binding.btnRekening.setOnClickListener {
+            togglePopupItems()
+        }
+
+        binding.layoutItems.setOnClickListener {
+            val intent = Intent(activity, MaintanceActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.fiturMutasi.setOnClickListener {
             val intent = Intent(activity, MutationActivity::class.java)
             startActivity(intent)
@@ -161,14 +173,19 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, TransferTujuanActivity::class.java)
             startActivity(intent)
         }
-        binding.btnRekening.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
         binding.btnKeluar.setOnClickListener {
             showLogoutDialog()
         }
 
+    }
+
+    private fun togglePopupItems() {
+        if (isPopupVisible) {
+            binding.layoutItems.visibility = View.GONE
+        } else {
+            binding.layoutItems.visibility = View.VISIBLE
+        }
+        isPopupVisible = !isPopupVisible
     }
 
     private fun showToast(message: String) {
