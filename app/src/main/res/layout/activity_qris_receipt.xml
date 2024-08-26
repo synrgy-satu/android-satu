@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8FC"
+    tools:context=".ui.activities.qris.QrisReceiptActivity">
+
+<ImageView
+        android:id="@+id/logo"
+        android:layout_marginVertical="10dp"
+        android:layout_width="118dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ig_logo_biru"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linear_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:contentDescription="struk transfer"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_check" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Transfer Berhasil"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="transfer berhasil"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_idr_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_bold"
+            android:text="IDR 2,225,000.00"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="jumlah saldo"
+            android:textColor="@color/dark_grey"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/img_line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_bold"
+            android:text="Detail Transaksi"
+            android:textColor="@color/dark_grey"
+            android:contentDescription="detail transaksi"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Waktu Transaksi:"
+            android:textColor="@color/dark_grey"
+            android:contentDescription="waktu transaksi"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="12 Jul 2024 22:09:04"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Nama Penerima:"
+            android:textColor="@color/dark_grey"
+            android:contentDescription="nama penerima"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="Charina Lorenza"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Metode Pembayaran:"
+            android:contentDescription="Metode Pembayaran"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_catatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="QRIS"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Dari Rekening:"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_dari_rekening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="dari rekening"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="12991213145 (Karina Atifah Hana)"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Nomor Referensi:"
+            android:textColor="@color/dark_grey"
+            android:contentDescription="nomor referensi"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_no_ref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="OC2C6EE7-B579-4529-AAD8-F2C88A06C19F"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_info">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button"
+            android:contentDescription="Kembali ke home"
+            android:text="Kembali ke Home" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

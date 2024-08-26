@@ -14,6 +14,7 @@ import com.example.satu.R
 import com.example.satu.data.model.response.qris.DataQris
 import com.example.satu.data.model.response.transfer.DataCardRekening
 import com.example.satu.databinding.ActivityNominalQrisBinding
+import com.example.satu.ui.MainActivity
 import com.example.satu.ui.activities.transfer.TransferNowActivity
 import com.example.satu.ui.factory.QrisViewModelfactory
 import com.example.satu.ui.factory.TransferViewModelfactory
@@ -30,6 +31,8 @@ class NominalQrisActivity : AppCompatActivity() {
     private val viewModel: QrisViewModel by viewModels {
        QrisViewModelfactory.getInstance(application)
     }
+
+    private lateinit var barcodeValue: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNominalQrisBinding.inflate(layoutInflater)
@@ -38,9 +41,9 @@ class NominalQrisActivity : AppCompatActivity() {
         val sharedPrefToken = getSharedPreferences("UserToken", Context.MODE_PRIVATE)
         val token = sharedPrefToken .getString("token", "")
 
-        val barcodeValue = intent.getStringExtra("barcodeValue")
+        barcodeValue = intent.getStringExtra("barcodeValue").toString()
         if (barcodeValue != null && token != null) {
-            viewModel.getDataQris(token, barcodeValue).observe(this@NominalQrisActivity) { result ->
+            viewModel.getDataQris("Bearer $token", barcodeValue).observe(this@NominalQrisActivity) { result ->
                 when (result) {
                     is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@NominalQrisActivity)
                     is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
@@ -52,12 +55,42 @@ class NominalQrisActivity : AppCompatActivity() {
           } else {
             Toast.makeText(this, "No barcode value received", Toast.LENGTH_SHORT).show()
         }
+        setupClickListeners()
+    }
+
+    private fun setupClickListeners() {
+        binding.btnBayar.setOnClickListener {
+            val nominalText = binding.etNominal.text.toString().trim()
+            if (nominalText.isEmpty()) {
+                Toast.makeText(this, "Harap input nominal transfer", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val nominal = nominalText.toDoubleOrNull()
+            if (nominal == null || nominal < 10000) {
+                Toast.makeText(this, "Nominal harus minimal IDR 10.000", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val sharedPref = getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
+            val rekeningNumber = sharedPref.getString("rekening_number", "")
+            val balanceString = sharedPref.getString("balance", "")
+
+            // Jika validasi berhasil, pindah ke halaman TransferNowActivity
+            val intent = Intent(this, QrisVerificationActivity::class.java).apply {
+                putExtra("saldo", balanceString)
+                putExtra("barcodeValue", barcodeValue) // Make sure barcodeValue is accessible here
+                putExtra("rekeningNumber", rekeningNumber)
+            }
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun onLoginSuccess(data: DataQris) {
         val sharedPref = getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
         val rekeningNumber = sharedPref.getString("rekening_number", "")
-
+        val fullName = sharedPref.getString("full_name", "")
         val balanceString = sharedPref.getString("balance", "")
 
         // Format balance
@@ -66,9 +99,9 @@ class NominalQrisActivity : AppCompatActivity() {
         numberFormat.maximumFractionDigits = 2
         val formattedBalance = numberFormat.format(balance)
 
-        binding.tvNominal.text = formattedBalance
+        binding.tvSaldo.text = "Saldo: IDR $formattedBalance"
         binding.tvName.text  = data.name
-        binding.tvRekeningSumber.text = "Saver+ ($rekeningNumber)"
+        binding.tvRekeningSumber.text = "Saver+ ($rekeningNumber) - $fullName"
         ProgressDialogUtils.hideProgressDialog()
     }
 

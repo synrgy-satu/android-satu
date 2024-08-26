@@ -20,6 +20,12 @@
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.qris.QrisReceiptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.qris.QrisVerificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.qris.NominalQrisActivity"
             android:exported="false" />
         <activity
