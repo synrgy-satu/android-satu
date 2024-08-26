@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.Camera
+import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -29,6 +31,10 @@ class QrisActivity : AppCompatActivity() {
         private const val GALLERY_REQUEST_CODE = 101
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
+
+    private var flashEnabled: Boolean = false
+    private lateinit var cameraControl: CameraControl
+
     private val requestPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
@@ -67,11 +73,14 @@ class QrisActivity : AppCompatActivity() {
 
             try {
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(
+                val camera: Camera = cameraProvider.bindToLifecycle(
                     this,
                     cameraSelector,
                     preview
                 )
+
+
+                cameraControl = camera.cameraControl
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@QrisActivity,
@@ -104,33 +113,6 @@ class QrisActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-//    private fun startCamera() {
-//        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-//
-//        cameraProviderFuture.addListener({
-//            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-//
-//            val preview = Preview.Builder()
-//                .build()
-//                .also {
-//                    it.setSurfaceProvider(binding.previewView.surfaceProvider)
-//                }
-//
-//            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-//
-//            try {
-//                cameraProvider.unbindAll()
-//
-//                cameraProvider.bindToLifecycle(
-//                    this, cameraSelector, preview
-//                )
-//            } catch (exc: Exception) {
-//                Toast.makeText(this, "Error starting camera: ${exc.message}", Toast.LENGTH_SHORT).show()
-//            }
-//
-//        }, ContextCompat.getMainExecutor(this))
-//    }
-
 
     private fun checkAndRequestPermissions(): Boolean {
         return if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -141,13 +123,22 @@ class QrisActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleFlash() {
-        Toast.makeText(this, "Flash", Toast.LENGTH_SHORT).show()
-    }
+
 
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, GALLERY_REQUEST_CODE)
+    }
+
+    private fun toggleFlash() {
+        if (::cameraControl.isInitialized) {
+            flashEnabled = !flashEnabled
+            cameraControl.enableTorch(flashEnabled)
+            val flashState = if (flashEnabled) "on" else "off"
+            Toast.makeText(this, "Flash $flashState", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Kamera belum siap", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
