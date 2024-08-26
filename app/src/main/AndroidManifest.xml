@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.CAMERA"
-        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" /> <!-- Permission for accessing external storage (if needed for gallery access) -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Permission for accessing external storage (if needed for gallery access) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -21,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Satu"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.activities.qris.NominalQrisActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.activities.transfer.TransferReceiptActivity"
             android:exported="false" />

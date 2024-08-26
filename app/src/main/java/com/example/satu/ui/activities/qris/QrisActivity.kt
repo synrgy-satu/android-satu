@@ -6,13 +6,18 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.OptIn
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ExperimentalGetImage
+import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
@@ -22,41 +27,47 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityQrisBinding
 import com.example.satu.ui.MainActivity
+import com.google.mlkit.vision.barcode.BarcodeScanner
+import com.google.mlkit.vision.barcode.BarcodeScannerOptions
+import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.common.InputImage
 
 class QrisActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQrisBinding
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+    private var flashEnabled: Boolean = false
+    private lateinit var cameraControl: CameraControl
+
     companion object {
         private const val CAMERA_PERMISSION_CODE = 100
         private const val GALLERY_REQUEST_CODE = 101
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 
-    private var flashEnabled: Boolean = false
-    private lateinit var cameraControl: CameraControl
-
     private val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
-                Toast.makeText(this, "Permission request granted", Toast.LENGTH_LONG).show()
+                startCamera() // Start camera if permission is granted
             } else {
-                Toast.makeText(this, "Permission request denied", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_LONG).show()
             }
         }
+
     private fun allPermissionsGranted() =
-        ContextCompat.checkSelfPermission(
-            this,
-            REQUIRED_PERMISSION
-        ) == PackageManager.PERMISSION_GRANTED
+        ContextCompat.checkSelfPermission(this, REQUIRED_PERMISSION) == PackageManager.PERMISSION_GRANTED
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQrisBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         if (!allPermissionsGranted()) {
-           requestPermissionLauncher.launch(REQUIRED_PERMISSION)
+            requestPermissionLauncher.launch(REQUIRED_PERMISSION)
+        } else {
+            startCamera()
         }
+
         setupClickListeners()
     }
 
@@ -71,39 +82,42 @@ class QrisActivity : AppCompatActivity() {
                     it.setSurfaceProvider(binding.previewView.surfaceProvider)
                 }
 
+            val barcodeAnalyzer = BarcodeAnalyzer()
+
+            val imageAnalysis = ImageAnalysis.Builder()
+                .build()
+                .also {
+                    it.setAnalyzer(ContextCompat.getMainExecutor(this), barcodeAnalyzer)
+                }
+
             try {
                 cameraProvider.unbindAll()
                 val camera: Camera = cameraProvider.bindToLifecycle(
                     this,
                     cameraSelector,
-                    preview
+                    preview,
+                    imageAnalysis
                 )
-
-
                 cameraControl = camera.cameraControl
+                Log.d("CameraX", "Camera started successfully")
             } catch (exc: Exception) {
-                Toast.makeText(
-                    this@QrisActivity,
-                    "Gagal memunculkan kamera.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                exc.printStackTrace()
+                Log.e("CameraX", "Failed to start camera: ${exc.message}")
+                Toast.makeText(this, "Failed to start camera", Toast.LENGTH_SHORT).show()
             }
         }, ContextCompat.getMainExecutor(this))
     }
 
-
     private fun setupClickListeners() = with(binding) {
         btnFlash.setOnClickListener {
-            if (checkAndRequestPermissions()) {
-                toggleFlash()
-            }
+            toggleFlash()
         }
 
         btnGallery.setOnClickListener {
             openGallery()
         }
 
-        topAppBar.setOnClickListener{
+        topAppBar.setOnClickListener {
             val intent = Intent(this@QrisActivity, MainActivity::class.java)
             startActivity(intent)
         }
@@ -114,21 +128,18 @@ class QrisActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkAndRequestPermissions(): Boolean {
-        return if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
-            false
-        } else {
-            true
-        }
-    }
-
-
-
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(intent, GALLERY_REQUEST_CODE)
+        galleryLauncher.launch(intent)
     }
+
+    private val galleryLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val selectedImage: Uri? = result.data?.data
+                Toast.makeText(this, "Image selected from gallery", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     private fun toggleFlash() {
         if (::cameraControl.isInitialized) {
@@ -137,20 +148,7 @@ class QrisActivity : AppCompatActivity() {
             val flashState = if (flashEnabled) "on" else "off"
             Toast.makeText(this, "Flash $flashState", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Kamera belum siap", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            CAMERA_PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    startCamera()
-                } else {
-                    Toast.makeText(this, "Izin Kamera ditolak", Toast.LENGTH_SHORT).show()
-                }
-            }
+            Toast.makeText(this, "Camera not ready", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -162,9 +160,55 @@ class QrisActivity : AppCompatActivity() {
         }
     }
 
-    public override fun onResume() {
-        super.onResume()
-        startCamera()
+    private inner class BarcodeAnalyzer : ImageAnalysis.Analyzer {
+        private val barcodeScanner: BarcodeScanner = BarcodeScanning.getClient(
+            BarcodeScannerOptions.Builder()
+                .setBarcodeFormats(Barcode.FORMAT_CODE_128, Barcode.FORMAT_CODE_39, Barcode.FORMAT_QR_CODE)
+                .build()
+        )
+
+        // Flag untuk memastikan pemindaian hanya dilakukan sekali
+        private var barcodeScanned: Boolean = false
+
+        @OptIn(ExperimentalGetImage::class)
+        override fun analyze(imageProxy: ImageProxy) {
+            if (barcodeScanned) {
+                imageProxy.close()
+                return
+            }
+
+            val mediaImage = imageProxy.image ?: return
+            val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
+
+            barcodeScanner.process(image)
+                .addOnSuccessListener { barcodes ->
+                    for (barcode in barcodes) {
+                        val rawValue = barcode.rawValue
+                        Log.d("Barcode", "Barcode value: $rawValue")
+                        // Mengatur flag untuk menandai bahwa barcode sudah dipindai
+                        barcodeScanned = true
+
+                        // Pindah halaman dengan nilai barcode
+                        val intent = Intent(this@QrisActivity, NominalQrisActivity::class.java).apply {
+                            putExtra("barcodeValue", rawValue)
+                        }
+                        startActivity(intent)
+                        break
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.e("Barcode", "Barcode scan failed", e)
+                }
+                .addOnCompleteListener {
+                    imageProxy.close()
+                }
+        }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (allPermissionsGranted()) {
+            startCamera()
+        }
+    }
 }
