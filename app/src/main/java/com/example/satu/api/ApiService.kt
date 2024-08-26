@@ -9,6 +9,7 @@ import com.example.satu.data.model.response.auth.CardCheckResponse
 import com.example.satu.data.model.response.auth.ForgotPasswordResponse
 import com.example.satu.data.model.response.auth.LoginResponse
 import com.example.satu.data.model.response.auth.RegisterResponse
+import com.example.satu.data.model.response.qris.DataQrisResponse
 import com.example.satu.data.model.response.transfer.CardResponse
 import com.example.satu.data.model.response.transfer.TransferResponse
 import com.example.satu.data.model.response.user.UserResponse
@@ -51,5 +52,11 @@ interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("auth/password")
     suspend fun forgotPassword(@Body request: ForgotPasswordRequest): ForgotPasswordResponse
+
+    @GET("card/{qrOrId}")
+    suspend fun getDataQris(
+        @Header("Authorization") token: String,
+        @Path("qrOrId") qrOrId: String
+    ): DataQrisResponse
 
 }
