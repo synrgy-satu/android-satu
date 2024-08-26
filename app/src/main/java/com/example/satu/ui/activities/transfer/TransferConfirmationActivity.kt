@@ -57,7 +57,7 @@ class TransferConfirmationActivity : AppCompatActivity() {
         }
 
         btnConfirm.setOnClickListener {
-            startActivity(Intent(this@TransferConfirmationActivity, TransferVerificationActivity::class.java))
+            startActivity(Intent(this@TransferConfirmationActivity, TransferPinActivity::class.java))
             finish()
         }
     }
