@@ -7,6 +7,7 @@ import androidx.lifecycle.liveData
 import com.example.satu.R
 import com.example.satu.api.ApiService
 import com.example.satu.data.model.request.auth.CardCheckRequest
+import com.example.satu.data.model.request.qris.QrisRequest
 import com.example.satu.data.model.request.transfer.TransferRequest
 import com.example.satu.utils.ApiError
 import com.example.satu.utils.ApiError.handleHttpException
@@ -31,6 +32,20 @@ class QrisRepository private constructor(
             emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
         }
     }
+    fun addQris(token: String, debitedRekeningNumber: Long, targetQris: String, amount: Long, pin: String) = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.addQris("Bearer $token", QrisRequest(debitedRekeningNumber, targetQris, amount, pin))
+            emit(Result.Success(response))
+        }catch (e: HttpException) {
+            emit(handleHttpException(e))
+        } catch (exception: IOException) {
+            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+        } catch (exception: Exception) {
+            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+        }
+    }
+
 
     companion object {
         @Volatile

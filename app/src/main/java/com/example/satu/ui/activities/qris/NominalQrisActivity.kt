@@ -33,6 +33,7 @@ class NominalQrisActivity : AppCompatActivity() {
     }
 
     private lateinit var barcodeValue: String
+    private lateinit var namaPenerima: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNominalQrisBinding.inflate(layoutInflater)
@@ -74,13 +75,13 @@ class NominalQrisActivity : AppCompatActivity() {
 
             val sharedPref = getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
             val rekeningNumber = sharedPref.getString("rekening_number", "")
-            val balanceString = sharedPref.getString("balance", "")
 
             // Jika validasi berhasil, pindah ke halaman TransferNowActivity
             val intent = Intent(this, QrisVerificationActivity::class.java).apply {
-                putExtra("saldo", balanceString)
-                putExtra("barcodeValue", barcodeValue) // Make sure barcodeValue is accessible here
-                putExtra("rekeningNumber", rekeningNumber)
+                putExtra("amount", nominalText)
+                putExtra("namaPenerima", namaPenerima)
+                putExtra("targetQris", barcodeValue) // Make sure barcodeValue is accessible here
+                putExtra("debitedRekeningNumber", rekeningNumber)
             }
             startActivity(intent)
             finish()
@@ -92,7 +93,7 @@ class NominalQrisActivity : AppCompatActivity() {
         val rekeningNumber = sharedPref.getString("rekening_number", "")
         val fullName = sharedPref.getString("full_name", "")
         val balanceString = sharedPref.getString("balance", "")
-
+        namaPenerima = data.name.toString()
         // Format balance
         val balance = balanceString?.toDoubleOrNull() ?: 0.0
         val numberFormat = NumberFormat.getNumberInstance(Locale("id", "ID"))

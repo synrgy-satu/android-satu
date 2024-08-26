@@ -4,12 +4,14 @@ import com.example.satu.data.model.request.auth.CardCheckRequest
 import com.example.satu.data.model.request.auth.ForgotPasswordRequest
 import com.example.satu.data.model.request.auth.LoginRequest
 import com.example.satu.data.model.request.auth.RegisterRequest
+import com.example.satu.data.model.request.qris.QrisRequest
 import com.example.satu.data.model.request.transfer.TransferRequest
 import com.example.satu.data.model.response.auth.CardCheckResponse
 import com.example.satu.data.model.response.auth.ForgotPasswordResponse
 import com.example.satu.data.model.response.auth.LoginResponse
 import com.example.satu.data.model.response.auth.RegisterResponse
 import com.example.satu.data.model.response.qris.DataQrisResponse
+import com.example.satu.data.model.response.qris.QrisResponse
 import com.example.satu.data.model.response.transfer.CardResponse
 import com.example.satu.data.model.response.transfer.TransferResponse
 import com.example.satu.data.model.response.user.UserResponse
@@ -58,5 +60,11 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Path("qrOrId") qrOrId: String
     ): DataQrisResponse
+
+    @Headers("Content-Type: application/json")
+    @POST("action/bayarqris")
+    suspend fun addQris(
+        @Header("Authorization") token: String,
+        @Body request: QrisRequest): QrisResponse
 
 }
