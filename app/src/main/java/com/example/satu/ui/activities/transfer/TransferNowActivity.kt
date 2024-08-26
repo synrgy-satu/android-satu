@@ -36,7 +36,7 @@ class TransferNowActivity : AppCompatActivity() {
 
         binding.tvName.text = fullName
         binding.tvCardNumber.text = cardNumber
-        binding.tvRekeningSumber.text = "Saver ($rekeningNumber)"
+        binding.tvRekeningSumber.text = "Saver+ ($rekeningNumber)"
         binding.tvSaldo.text = "Saldo: IDR $formattedBalance"
         setupClickListeners()
     }

@@ -53,7 +53,7 @@ interface ApiService {
     @POST("auth/password")
     suspend fun forgotPassword(@Body request: ForgotPasswordRequest): ForgotPasswordResponse
 
-    @GET("card/{qrOrId}")
+    @GET("qris/{qrOrId}")
     suspend fun getDataQris(
         @Header("Authorization") token: String,
         @Path("qrOrId") qrOrId: String

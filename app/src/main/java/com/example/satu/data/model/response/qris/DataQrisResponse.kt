@@ -30,7 +30,7 @@ data class DataQris(
 	val name: String? = null,
 
 	@field:SerializedName("nmid")
-	val nmid: Int? = null,
+	val nmid: Long? = null,
 
 	@field:SerializedName("active")
 	val active: Boolean? = null,
