@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.satu.api.ApiConfig
 import com.example.satu.data.local.UserPreferences
 import com.example.satu.data.local.dataStore
+import com.example.satu.data.repository.QrisRepository
 import com.example.satu.data.repository.TransferRepository
 import com.example.satu.data.repository.UserRepository
 
@@ -16,4 +17,7 @@ object Injection {
 
     fun provideTransferRepository(application: Application) =
         TransferRepository.getInstance(provideApiService(), application)
+
+    fun provideQrisRepository(application: Application) =
+        QrisRepository.getInstance(provideApiService(), application)
 }
