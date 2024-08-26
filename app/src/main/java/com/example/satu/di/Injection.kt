@@ -14,7 +14,6 @@ object Injection {
         UserPreferences.getInstance(application.dataStore)
     fun provideUserRepository(application: Application) =
         UserRepository.getInstance(provideApiService(), application, provideUserPreferences(application))
-
     fun provideTransferRepository(application: Application) =
         TransferRepository.getInstance(provideApiService(), application)
 

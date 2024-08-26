@@ -34,8 +34,12 @@ class TransferNowActivity : AppCompatActivity() {
         numberFormat.maximumFractionDigits = 2
         val formattedBalance = numberFormat.format(balance)
 
-        binding.tvName.text = fullName
-        binding.tvCardNumber.text = cardNumber
+        val sharedPrefTFRekning = getSharedPreferences("UserTransferRekening", Context.MODE_PRIVATE)
+        val targetRekeningNumber = sharedPrefTFRekning .getString("targetRekeningNumber", "")
+        val nameTujuan = sharedPrefTFRekning .getString("namaRekeningTujuan", "")
+
+        binding.tvName.text = nameTujuan
+        binding.tvCardNumber.text = targetRekeningNumber
         binding.tvRekeningSumber.text = "Saver+ ($rekeningNumber)"
         binding.tvSaldo.text = "Saldo: IDR $formattedBalance"
         setupClickListeners()
