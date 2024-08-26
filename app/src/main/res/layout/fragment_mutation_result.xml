@@ -234,7 +234,7 @@
                     android:fontFamily="@font/open_sans_semibold"
                     android:paddingVertical="10dp"
                     android:paddingHorizontal="10dp"
-                    android:text="Juli 2024"/>
+                    android:text="Agustus 2024"/>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMutationHistory"
