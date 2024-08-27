@@ -24,7 +24,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.satu.R
 import com.example.satu.databinding.FragmentMutationResultBinding
-import com.example.satu.ui.MainActivity
+import com.example.satu.ui.activities.MainActivity
 import com.example.satu.ui.activities.mutation.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback

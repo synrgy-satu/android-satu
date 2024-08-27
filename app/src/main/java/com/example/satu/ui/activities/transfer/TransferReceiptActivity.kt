@@ -2,15 +2,9 @@ package com.example.satu.ui.activities.transfer
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.R
-import com.example.satu.databinding.ActivityTransferConfirmationBinding
 import com.example.satu.databinding.ActivityTransferReceiptBinding
-import com.example.satu.ui.MainActivity
-import com.example.satu.ui.activities.auth.newuser.login.LoginSuccessActivity
+import com.example.satu.ui.activities.MainActivity
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Locale

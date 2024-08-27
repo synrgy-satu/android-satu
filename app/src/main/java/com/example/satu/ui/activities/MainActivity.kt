@@ -1,4 +1,4 @@
-package com.example.satu.ui
+package com.example.satu.ui.activities
 
 import android.content.Intent
 import android.os.Build
@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.satu.R
 import com.example.satu.databinding.ActivityMainBinding
 import com.example.satu.ui.activities.qris.QrisActivity
-import com.example.satu.ui.activities.qris.QrisFragment
 import com.example.satu.ui.fragment.home.HomeFragment
 import com.example.satu.ui.fragment.notification.NotifikasiFragment
 import com.example.satu.ui.fragment.profile.ProfileFragment

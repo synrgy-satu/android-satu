@@ -32,60 +32,46 @@ class LoginEmailActivity : AppCompatActivity() {
     private lateinit var email: String
     private lateinit var password: String
 
-
     private val viewModel: LoginViewModel by viewModels {
         AuthViewModelFactory.getInstance(application)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginEmailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val fullText = "Masukkan Email dan Kata Sandi untuk mengakses M-Banking SATU"
-        val spannableString = SpannableString(fullText)
 
-        val primaryColor = ContextCompat.getColor(this, R.color.primary)
-        val startIndex = fullText.indexOf("M-Banking SATU")
-        val endIndex = startIndex + "M-Banking SATU".length
-
-        spannableString.setSpan(
-            ForegroundColorSpan(primaryColor),
-            startIndex,
-            endIndex,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        binding.tvText5.text = spannableString
+        setSpannableText()
         setupClickListeners()
     }
+
+    private fun setSpannableText() {
+        val fullText = "Masukkan Email dan Kata Sandi untuk mengakses M-Banking SATU"
+        val spannableString = SpannableString(fullText).apply {
+            val primaryColor = ContextCompat.getColor(this@LoginEmailActivity, R.color.primary)
+            val startIndex = fullText.indexOf("M-Banking SATU")
+            val endIndex = startIndex + "M-Banking SATU".length
+            setSpan(ForegroundColorSpan(primaryColor), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        binding.tvText5.text = spannableString
+    }
+
     private fun setupClickListeners() = with(binding) {
-        btnLanjut.setOnClickListener {
-            if (validateInputs()) {
-                viewModel.login(email, password).observe(this@LoginEmailActivity) { result ->
-                    when (result) {
-                        is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@LoginEmailActivity)
-                        is Result.Success -> onLoginSuccess()
-                        is Result.Error -> onLoginError(result.error)
-                    }
+        btnLanjut.setOnClickListener { handleLogin() }
+        tvForgotPasswordLogin.setOnClickListener { navigateTo(ForgotPasswordActivity::class.java) }
+        topAppBar.setOnClickListener { navigateTo(OnBoardingNewUserActivity::class.java) }
+    }
+
+    private fun handleLogin() {
+        if (validateInputs()) {
+            viewModel.login(email, password).observe(this) { result ->
+                when (result) {
+                    is Result.Loading -> ProgressDialogUtils.showProgressDialog(this)
+                    is Result.Success -> onLoginSuccess()
+                    is Result.Error -> onLoginError(result.error)
                 }
             }
         }
-        tvForgotPasswordLogin.setOnClickListener {
-            startActivity(Intent(this@LoginEmailActivity, ForgotPasswordActivity::class.java))
-        }
-        topAppBar.setOnClickListener {
-            startActivity(Intent(this@LoginEmailActivity, OnBoardingNewUserActivity::class.java))
-        }
-    }
-
-    private fun onLoginSuccess() {
-        ProgressDialogUtils.hideProgressDialog()
-        savePasswordToSharedPreferences(password)
-        startActivity(Intent(this@LoginEmailActivity, LoginSuccessActivity::class.java))
-        finish()
-    }
-    private fun onLoginError(errorMessage: String) {
-        ProgressDialogUtils.hideProgressDialog()
-        showSnackBar(errorMessage)
     }
 
     private fun validateInputs(): Boolean {
@@ -93,39 +79,44 @@ class LoginEmailActivity : AppCompatActivity() {
         password = binding.etPassword.text.toString().trim()
 
         return when {
-            email.isEmpty() -> {
-                showSnackBar("Email wajib diisi")
-                false
-            }
-            password.isEmpty() -> {
-                showSnackBar("Password wajib diisi")
-                false
-            }
-            !isValidEmail(email) -> {
-                showSnackBar("Format email salah")
-                false
-            }
+            email.isEmpty() -> showError("Email wajib diisi")
+            password.isEmpty() -> showError("Password wajib diisi")
+            !isValidEmail(email) -> showError("Format email salah")
             else -> true
         }
     }
 
-    private fun isValidEmail(email: String): Boolean {
-        val emailPattern = Pattern.compile(
-            "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
-        )
-        return emailPattern.matcher(email).matches()
+    private fun isValidEmail(email: String) = email.matches(Regex("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"))
+
+    private fun onLoginSuccess() {
+        ProgressDialogUtils.hideProgressDialog()
+        saveToSharedPreferences("user_password", password)
+        navigateTo(LoginSuccessActivity::class.java, true)
     }
 
+    private fun onLoginError(errorMessage: String) {
+        ProgressDialogUtils.hideProgressDialog()
+        showSnackBar(errorMessage)
+    }
+
+    private fun showError(message: String): Boolean {
+        showSnackBar(message)
+        return false
+    }
+
+    private fun saveToSharedPreferences(key: String, value: String) {
+        getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+            .edit()
+            .putString(key, value)
+            .apply()
+    }
 
     private fun showSnackBar(message: String) {
         SnackbarUtils.showWithDismissAction(binding.root, message)
     }
-    private fun savePasswordToSharedPreferences(password: String) {
-        val sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        with(sharedPreferences.edit()) {
-            putString("user_password", password)
-            apply()
-        }
-    }
 
+    private fun navigateTo(activityClass: Class<*>, finishCurrent: Boolean = false) {
+        startActivity(Intent(this, activityClass))
+        if (finishCurrent) finish()
+    }
 }

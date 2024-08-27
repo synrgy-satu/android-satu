@@ -13,19 +13,29 @@ import com.example.satu.ui.activities.auth.newuser.register.RegisterEmailActivit
 import com.example.satu.ui.activities.auth.newuser.register.RegisterRekeningActivity
 
 class OnBoardingNewUserActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityOnBoardingNewUserBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOnBoardingNewUserBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = ActivityOnBoardingNewUserBinding.inflate(layoutInflater).also {
+            setContentView(it.root)
+        }
         setupClickListeners()
     }
-    private fun setupClickListeners() = with(binding) {
-        btnLoginOnboarding.setOnClickListener {
-            startActivity(Intent(this@OnBoardingNewUserActivity, LoginEmailActivity::class.java))
+
+    private fun setupClickListeners() {
+        binding.apply {
+            btnLoginOnboarding.setOnClickListener {
+                navigateTo(LoginEmailActivity::class.java)
+            }
+            btnRegisOnboarding.setOnClickListener {
+                navigateTo(RegisterRekeningActivity::class.java)
+            }
         }
-        btnRegisOnboarding.setOnClickListener {
-            startActivity(Intent(this@OnBoardingNewUserActivity, RegisterRekeningActivity::class.java))
-        }
+    }
+
+    private fun navigateTo(destination: Class<*>) {
+        startActivity(Intent(this, destination))
     }
 }

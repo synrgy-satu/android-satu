@@ -4,21 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.satu.R
-import com.example.satu.data.model.response.qris.DataQris
 import com.example.satu.data.model.response.qris.DataQrisNih
-import com.example.satu.databinding.ActivityNominalQrisBinding
 import com.example.satu.databinding.ActivityQrisVerificationBinding
-import com.example.satu.ui.MainActivity
 import com.example.satu.ui.activities.mutation.PinValidationResponse
 import com.example.satu.ui.activities.mutation.network.RetrofitClient
 import com.example.satu.ui.factory.QrisViewModelfactory
@@ -31,8 +26,6 @@ import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Call
 import retrofit2.Response
-import java.text.NumberFormat
-import java.util.Locale
 
 class QrisVerificationActivity : AppCompatActivity() {
 

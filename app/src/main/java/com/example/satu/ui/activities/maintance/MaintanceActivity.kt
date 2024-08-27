@@ -3,7 +3,7 @@ package com.example.satu.ui.activities.maintance
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.satu.ui.MainActivity
+import com.example.satu.ui.activities.MainActivity
 import com.example.satu.databinding.ActivityMaintanceBinding
 
 class MaintanceActivity : AppCompatActivity() {
