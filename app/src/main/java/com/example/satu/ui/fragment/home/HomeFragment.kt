@@ -79,7 +79,6 @@ class HomeFragment : Fragment() {
             tvNamaLengkap.text = userProfile.fullName.toString()
             tvNominal.text = bintang
             tvRekening.text = userProfile.rekenings?.get(0)?.rekeningNumber.toString()
-
             btnSalinRekening.setOnClickListener {
                 salinRekeningKeClipboard(tvRekening.text.toString())
             }
@@ -87,7 +86,7 @@ class HomeFragment : Fragment() {
             btnLihatSaldo.setOnClickListener {
                 isSaldoVisible = !isSaldoVisible
                 tvNominal.text = if (isSaldoVisible) nominalAsli else bintang
-                val iconResId = if (isSaldoVisible) R.drawable.ic_eye_putih else R.drawable.ic_eye_slash_putih
+                val iconResId = if (isSaldoVisible) R.drawable.ic_eye_slash_putih else R.drawable.ic_eye_putih
                 btnLihatSaldo.setBackgroundResource(iconResId)
             }
 
@@ -131,54 +130,33 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-
-        // Sembunyikan layout item saver dan premium pada awalnya
         binding.layoutItems.visibility = View.GONE
-
-        // Tambahkan listener untuk btnRekening
         binding.btnRekening.setOnClickListener {
             togglePopupItems()
-        }
-
-        binding.layoutItems.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.fiturMutasi.setOnClickListener {
-            val intent = Intent(activity, MutationActivity::class.java)
-            startActivity(intent)
-        }
-        binding.fiturInvestasi.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
-        binding.fiturKredit.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
-        binding.fiturTap.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
-        binding.fiturPembayaran.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
-        binding.fiturPembelian.setOnClickListener {
-            val intent = Intent(activity, MaintanceActivity::class.java)
-            startActivity(intent)
-        }
-        binding.fiturTransfer.setOnClickListener {
-            val intent = Intent(activity, TransferTujuanActivity::class.java)
-            startActivity(intent)
         }
         binding.btnKeluar.setOnClickListener {
             showLogoutDialog()
         }
-
+        setupFeatureClickListeners()
     }
 
+    private fun setupFeatureClickListeners() {
+        setupClickListener(binding.layoutItems, MaintanceActivity::class.java)
+        setupClickListener(binding.fiturMutasi, MutationActivity::class.java)
+        setupClickListener(binding.fiturInvestasi, MaintanceActivity::class.java)
+        setupClickListener(binding.fiturKredit, MaintanceActivity::class.java)
+        setupClickListener(binding.fiturTap, MaintanceActivity::class.java)
+        setupClickListener(binding.fiturPembayaran, MaintanceActivity::class.java)
+        setupClickListener(binding.fiturPembelian, MaintanceActivity::class.java)
+        setupClickListener(binding.fiturTransfer, TransferTujuanActivity::class.java)
+    }
+
+    private fun setupClickListener(view: View, activityClass: Class<*>) {
+        view.setOnClickListener {
+            val intent = Intent(activity, activityClass)
+            startActivity(intent)
+        }
+    }
     private fun togglePopupItems() {
         if (isPopupVisible) {
             binding.layoutItems.visibility = View.GONE
@@ -219,28 +197,23 @@ class HomeFragment : Fragment() {
 
         }
     }
-    private fun clearPasswordFromSharedPreferences() {
-        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        with(sharedPreferences.edit()) {
-            remove("user_password")
-            apply()
+    private fun clearSharedPreferences(prefNames: List<String>) {
+        for (prefName in prefNames) {
+            val sharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            with(sharedPreferences.edit()) {
+                if (prefName == "user_prefs") {
+                    remove("user_password")
+                } else {
+                    clear()
+                }
+                apply()
+            }
         }
-        val sharedPref = requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE)
-
-        with(sharedPref.edit()) {
-            clear()
-            apply()
-        }
-
-        val sharedPrefToken = requireContext().getSharedPreferences("UserToken", Context.MODE_PRIVATE)
-
-        with(sharedPrefToken.edit()) {
-            clear()
-            apply()
-        }
-
     }
 
+    private fun clearPasswordFromSharedPreferences() {
+        clearSharedPreferences(listOf("user_prefs", "UserProfile", "UserToken"))
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

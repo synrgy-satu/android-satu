@@ -149,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_eye_slash_putih"
+                        android:background="@drawable/ic_eye_putih"
                         android:contentDescription="Tombol icon untuk menutup dan membuka saldo anda"/>
 
                 </LinearLayout>

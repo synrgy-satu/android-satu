@@ -1,11 +1,12 @@
 package com.example.satu.ui.activities.mutation.network
 
+import com.example.satu.utils.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
 
 object RetrofitClient {
-    private const val BASE_URL = "https://satu.cekrek.shop/api/v1/"
+    private const val BASE_URL = Constants.BASE_URL
 
     private val okHttpClient = OkHttpClient.Builder().build()
 
