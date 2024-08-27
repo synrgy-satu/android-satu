@@ -6,26 +6,17 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
 import com.example.satu.databinding.ActivityLoginEmailBinding
-import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
 import com.example.satu.ui.activities.auth.forgotpassword.ForgotPasswordActivity
 import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
-import com.example.satu.ui.activities.auth.newuser.register.RegisterSuccessActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
-import com.example.satu.ui.viewmodel.RegisterViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
-import com.google.android.material.snackbar.Snackbar
-import java.util.regex.Pattern
 
 class LoginEmailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginEmailBinding
@@ -66,9 +57,9 @@ class LoginEmailActivity : AppCompatActivity() {
         if (validateInputs()) {
             viewModel.login(email, password).observe(this) { result ->
                 when (result) {
-                    is Result.Loading -> ProgressDialogUtils.showProgressDialog(this)
-                    is Result.Success -> onLoginSuccess()
-                    is Result.Error -> onLoginError(result.error)
+                    is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this)
+                    is com.example.common.Result.Success -> onLoginSuccess()
+                    is com.example.common.Result.Error -> onLoginError(result.error)
                 }
             }
         }

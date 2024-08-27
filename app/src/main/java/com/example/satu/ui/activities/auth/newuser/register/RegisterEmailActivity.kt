@@ -2,11 +2,9 @@ package com.example.satu.ui.activities.auth.newuser.register
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.satu.databinding.ActivityRegisterEmailBinding
 import com.example.satu.ui.activities.loader.LoaderRegisterEmailActivity
-import com.example.satu.ui.activities.loader.LoaderRegisterRekeningActivity
 import com.example.satu.utils.SnackbarUtils
 import java.util.regex.Pattern
 

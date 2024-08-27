@@ -1,6 +1,6 @@
 package com.example.satu.api
 
-import com.example.satu.utils.Constants
+import com.example.common.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

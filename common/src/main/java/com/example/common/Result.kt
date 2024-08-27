@@ -1,4 +1,4 @@
-package com.example.satu.utils
+package com.example.common
 
 sealed class Result<out R> private constructor() {
     data class Success<out T>(val data: T) : Result<T>()

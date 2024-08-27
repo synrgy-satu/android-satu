@@ -10,7 +10,6 @@ import com.example.satu.databinding.ActivityRegisterPinBinding
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.RegisterViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.google.android.material.snackbar.Snackbar
 
 class RegisterPinActivity : AppCompatActivity() {
@@ -58,9 +57,9 @@ class RegisterPinActivity : AppCompatActivity() {
                     Log.d("OKE EMAIL: ", email.toString())
                    viewModel.register(email, password, rekening, phone, pin ).observe(this@RegisterPinActivity) { result ->
                         when (result) {
-                            is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@RegisterPinActivity)
-                            is Result.Success -> onRegisterSuccess()
-                            is Result.Error -> onRegisterError(result.error)
+                            is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@RegisterPinActivity)
+                            is com.example.common.Result.Success -> onRegisterSuccess()
+                            is com.example.common.Result.Error -> onRegisterError(result.error)
                         }
                     }
                 }

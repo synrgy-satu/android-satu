@@ -13,7 +13,6 @@ import com.example.satu.data.model.request.auth.RegisterRequest
 import com.example.satu.data.model.response.auth.DataUser
 import com.example.satu.utils.ApiError
 import com.example.satu.utils.ApiError.handleHttpException
-import com.example.satu.utils.Result
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -22,46 +21,46 @@ class UserRepository private constructor(
     private val application: Application,
     private val userPref: UserPreferences
 ) {
-    private suspend fun <T> apiCall(call: suspend () -> T): Result<T> = try {
-        Result.Success(call())
+    private suspend fun <T> apiCall(call: suspend () -> T): com.example.common.Result<T> = try {
+        com.example.common.Result.Success(call())
     } catch (e: HttpException) {
-        Result.Error(ApiError.handleHttpExceptionString(e))
+        com.example.common.Result.Error(ApiError.handleHttpExceptionString(e))
     } catch (exception: IOException) {
-        Result.Error(application.resources.getString(R.string.network_error_message))
+        com.example.common.Result.Error(application.resources.getString(R.string.network_error_message))
     } catch (exception: Exception) {
-        Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error))
+        com.example.common.Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error))
     }
 
     fun register(emailAddress: String, password: String, cardNumber:  Long, phoneNumber:  String, pin: String) = liveData {
-        emit(Result.Loading)
+        emit(com.example.common.Result.Loading)
         try {
             val response = apiService.register(RegisterRequest(emailAddress, password, cardNumber, phoneNumber, pin))
-            emit(Result.Success(response))
+            emit(com.example.common.Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))
         } catch (exception: IOException) {
-            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+            emit(com.example.common.Result.Error(application.resources.getString(R.string.network_error_message)))
         } catch (exception: Exception) {
-            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+            emit(com.example.common.Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
         }
     }
 
     fun cardCheck(cardNumber: Long, month: Int, year: Int) = liveData {
-        emit(Result.Loading)
+        emit(com.example.common.Result.Loading)
         try {
             val response = apiService.cardCheck(CardCheckRequest(cardNumber, month, year))
-            emit(Result.Success(response))
+            emit(com.example.common.Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))
         } catch (exception: IOException) {
-            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+            emit(com.example.common.Result.Error(application.resources.getString(R.string.network_error_message)))
         } catch (exception: Exception) {
-            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+            emit(com.example.common.Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
         }
     }
 
     fun login(email: String, password: String) = liveData {
-        emit(Result.Loading)
+        emit(com.example.common.Result.Loading)
         emit(apiCall {
             val response = apiService.login(LoginRequest(email, password))
             response.data?.let { saveSession(it) }
@@ -77,16 +76,16 @@ class UserRepository private constructor(
     }
 
     fun getUser(token: String) = liveData {
-        emit(Result.Loading)
+        emit(com.example.common.Result.Loading)
         try {
             val response = apiService.getUser("Bearer $token")
-            emit(Result.Success(response))
+            emit(com.example.common.Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))
         } catch (exception: IOException) {
-            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+            emit(com.example.common.Result.Error(application.resources.getString(R.string.network_error_message)))
         } catch (exception: Exception) {
-            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+            emit(com.example.common.Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
         }
     }
     companion object {

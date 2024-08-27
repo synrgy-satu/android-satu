@@ -16,11 +16,8 @@ object SnackbarUtils {
             .apply {
                 setActionTextColor(ContextCompat.getColor(view.context, R.color.primary))
                 setAction("Dismiss") { dismiss() }
-
                 view.announceForAccessibility(messageText)
-
                 view.contentDescription = messageText
-
                 view.isFocusable = true
                 view.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             }

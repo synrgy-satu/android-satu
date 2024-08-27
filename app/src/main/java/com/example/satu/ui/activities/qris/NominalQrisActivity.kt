@@ -12,7 +12,6 @@ import com.example.satu.databinding.ActivityNominalQrisBinding
 import com.example.satu.ui.factory.QrisViewModelfactory
 import com.example.satu.ui.viewmodel.QrisViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
 import java.text.NumberFormat
 import java.util.Locale
@@ -37,9 +36,9 @@ class NominalQrisActivity : AppCompatActivity() {
         if (barcodeValue != null && token != null) {
             viewModel.getDataQris("Bearer $token", barcodeValue).observe(this@NominalQrisActivity) { result ->
                 when (result) {
-                    is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@NominalQrisActivity)
-                    is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
-                    is Result.Error -> onError(result.error)
+                    is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@NominalQrisActivity)
+                    is com.example.common.Result.Success -> result.data.data?.let { onLoginSuccess(it) }
+                    is com.example.common.Result.Error -> onError(result.error)
                 }
             }
             // binding.tvName.text = barcodeValue

@@ -2,21 +2,14 @@ package com.example.satu.ui.activities.auth.newuser.register
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.R
-import com.example.satu.databinding.ActivityOnBoardingNewUserBinding
 import com.example.satu.databinding.ActivityRegisterRekeningBinding
-import com.example.satu.ui.activities.auth.newuser.login.LoginEmailActivity
 import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.loader.LoaderRegisterRekeningActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.RegisterViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
 import java.util.Calendar
 
@@ -75,9 +68,9 @@ class RegisterRekeningActivity : AppCompatActivity() {
       }
         viewModel.cardCheck(rekeningLong, bulanInt, tahunInt).observe(this) { result ->
                 when (result) {
-                    is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@RegisterRekeningActivity)
-                    is Result.Success -> onRegisterSuccess()
-                    is Result.Error -> onRegisterError(result.error)
+                    is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@RegisterRekeningActivity)
+                    is com.example.common.Result.Success -> onRegisterSuccess()
+                    is com.example.common.Result.Error -> onRegisterError(result.error)
                 }
             }
         }

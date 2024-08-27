@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.satu.data.model.response.transfer.DataCardRekening
@@ -12,7 +11,6 @@ import com.example.satu.databinding.ActivityTransferAddNewRekeningBinding
 import com.example.satu.ui.factory.TransferViewModelfactory
 import com.example.satu.ui.viewmodel.TransferViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
 
 class TransferAddNewRekeningActivity : AppCompatActivity() {
@@ -39,9 +37,9 @@ class TransferAddNewRekeningActivity : AppCompatActivity() {
                rekening.toLongOrNull()?.let { it1 ->
                    viewModel.getCardRekening(it1).observe(this@TransferAddNewRekeningActivity) { result ->
                        when (result) {
-                           is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferAddNewRekeningActivity)
-                           is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
-                           is Result.Error -> onLoginError(result.error)
+                           is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferAddNewRekeningActivity)
+                           is com.example.common.Result.Success -> result.data.data?.let { onLoginSuccess(it) }
+                           is com.example.common.Result.Error -> onLoginError(result.error)
                        }
                    }
                }

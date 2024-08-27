@@ -3,23 +3,14 @@ package com.example.satu.ui.activities.transfer
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.satu.R
 import com.example.satu.data.model.response.transfer.DataTransfer
-import com.example.satu.databinding.ActivityTransferConfirmationBinding
 import com.example.satu.databinding.ActivityTransferVerificationBinding
-import com.example.satu.ui.activities.auth.newuser.login.LoginSuccessActivity
 import com.example.satu.ui.factory.TransferViewModelfactory
 import com.example.satu.ui.viewmodel.TransferViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
-import java.text.NumberFormat
-import java.util.Locale
 
 class TransferVerificationActivity : AppCompatActivity() {
     private lateinit var binding : ActivityTransferVerificationBinding
@@ -69,9 +60,9 @@ class TransferVerificationActivity : AppCompatActivity() {
                                 if (token != null) {
                                     viewModel.addTransfer(token, debitedRekeningNumber, targetRekeningNumber, amount, enteredPin, note).observe(this@TransferVerificationActivity) { result ->
                                         when (result) {
-                                            is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferVerificationActivity)
-                                            is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
-                                            is Result.Error -> onLoginError(result.error)
+                                            is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferVerificationActivity)
+                                            is com.example.common.Result.Success -> result.data.data?.let { onLoginSuccess(it) }
+                                            is com.example.common.Result.Error -> onLoginError(result.error)
                                         }
                                     }
                                 }

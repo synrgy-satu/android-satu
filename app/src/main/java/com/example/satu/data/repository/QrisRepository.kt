@@ -1,17 +1,11 @@
 package com.example.satu.data.repository
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.example.satu.R
 import com.example.satu.api.ApiService
-import com.example.satu.data.model.request.auth.CardCheckRequest
 import com.example.satu.data.model.request.qris.QrisRequest
-import com.example.satu.data.model.request.transfer.TransferRequest
-import com.example.satu.utils.ApiError
 import com.example.satu.utils.ApiError.handleHttpException
-import com.example.satu.utils.Result
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -20,29 +14,29 @@ class QrisRepository private constructor(
     private val application: Application
 ) {
     fun getDataQris(token: String, qrOrId: String) = liveData {
-        emit(Result.Loading)
+        emit(com.example.common.Result.Loading)
         try {
             val response = apiService.getDataQris(token, qrOrId)
-            emit(Result.Success(response))
+            emit(com.example.common.Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))
         } catch (exception: IOException) {
-            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+            emit(com.example.common.Result.Error(application.resources.getString(R.string.network_error_message)))
         } catch (exception: Exception) {
-            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+            emit(com.example.common.Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
         }
     }
     fun addQris(token: String, debitedRekeningNumber: Long, targetQris: String, amount: Long, pin: String) = liveData {
-        emit(Result.Loading)
+        emit(com.example.common.Result.Loading)
         try {
             val response = apiService.addQris("Bearer $token", QrisRequest(debitedRekeningNumber, targetQris, amount, pin))
-            emit(Result.Success(response))
+            emit(com.example.common.Result.Success(response))
         }catch (e: HttpException) {
             emit(handleHttpException(e))
         } catch (exception: IOException) {
-            emit(Result.Error(application.resources.getString(R.string.network_error_message)))
+            emit(com.example.common.Result.Error(application.resources.getString(R.string.network_error_message)))
         } catch (exception: Exception) {
-            emit(Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
+            emit(com.example.common.Result.Error(exception.message ?: application.resources.getString(R.string.unknown_error)))
         }
     }
 

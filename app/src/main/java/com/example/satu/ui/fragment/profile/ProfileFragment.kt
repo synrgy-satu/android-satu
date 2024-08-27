@@ -21,7 +21,6 @@ import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserA
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.UserViewModel
-import com.example.satu.utils.Result
 import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
@@ -114,11 +113,11 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        private fun handleDataUser(result: Result<UserResponse>) {
+        private fun handleDataUser(result: com.example.common.Result<UserResponse>) {
             when (result) {
-                is Result.Loading -> return
-                is Result.Success -> result.data.data?.let { showUserProfile(it) }
-                is Result.Error -> showToast(result.error)
+                is com.example.common.Result.Loading -> return
+                is com.example.common.Result.Success -> result.data.data?.let { showUserProfile(it) }
+                is com.example.common.Result.Error -> showToast(result.error)
             }
         }
         private fun showUserProfile(userProfile: DataCurrentUser) {

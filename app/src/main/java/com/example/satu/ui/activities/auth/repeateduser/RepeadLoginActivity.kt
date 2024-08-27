@@ -8,13 +8,9 @@ import android.os.Looper
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
-import com.example.satu.databinding.ActivityRegisterSuccessBinding
 import com.example.satu.databinding.ActivityRepeadLoginBinding
 import com.example.satu.ui.activities.auth.newuser.login.LoginSuccessActivity
 import com.example.satu.utils.ProgressDialogUtils

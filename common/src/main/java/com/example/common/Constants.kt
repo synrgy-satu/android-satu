@@ -1,6 +1,6 @@
-package com.example.satu.utils
+package com.example.common
 
-import com.example.satu.BuildConfig
+import com.example.common.BuildConfig
 
 object Constants {
     const val BASE_URL = BuildConfig.BASE_URL

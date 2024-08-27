@@ -1,4 +1,4 @@
-package com.example.satu.utils
+package com.example.common
 
 class AuthUtils {
     companion object {

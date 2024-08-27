@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Satu"
 include(":app")
- 
+include(":common")

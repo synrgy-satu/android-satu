@@ -21,14 +21,11 @@ import com.example.satu.data.model.response.user.UserResponse
 import com.example.satu.databinding.FragmentHomeBinding
 import com.example.satu.ui.activities.auth.newuser.onboarding.OnBoardingNewUserActivity
 import com.example.satu.ui.activities.maintance.MaintanceActivity
-import com.example.satu.ui.activities.mutation.DateRangeViewModel
 import com.example.satu.ui.activities.mutation.MutationActivity
 import com.example.satu.ui.activities.transfer.TransferTujuanActivity
 import com.example.satu.ui.factory.AuthViewModelFactory
 import com.example.satu.ui.viewmodel.LoginViewModel
 import com.example.satu.ui.viewmodel.UserViewModel
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.example.satu.utils.Result
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -62,11 +59,11 @@ class HomeFragment : Fragment() {
             }
         }
     }
-    private fun handleDataUser(result: Result<UserResponse>) {
+    private fun handleDataUser(result: com.example.common.Result<UserResponse>) {
         when (result) {
-            is Result.Loading -> return
-            is Result.Success -> result.data.data?.let { showUserProfile(it) }
-            is Result.Error -> showToast(result.error)
+            is com.example.common.Result.Loading -> return
+            is com.example.common.Result.Success -> result.data.data?.let { showUserProfile(it) }
+            is com.example.common.Result.Error -> showToast(result.error)
         }
     }
 

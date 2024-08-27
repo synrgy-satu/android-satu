@@ -19,7 +19,6 @@ import com.example.satu.ui.activities.mutation.network.RetrofitClient
 import com.example.satu.ui.factory.QrisViewModelfactory
 import com.example.satu.ui.viewmodel.QrisViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
@@ -178,9 +177,9 @@ class QrisVerificationActivity : AppCompatActivity() {
                                             viewModel.addQris(token, it1, targetQris,
                                                 it, pin).observe(this@QrisVerificationActivity) { result ->
                                                 when (result) {
-                                                    is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@QrisVerificationActivity)
-                                                    is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
-                                                    is Result.Error -> onError(result.error)
+                                                    is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@QrisVerificationActivity)
+                                                    is com.example.common.Result.Success -> result.data.data?.let { onLoginSuccess(it) }
+                                                    is com.example.common.Result.Error -> onError(result.error)
                                                 }
                                             }
                                         }

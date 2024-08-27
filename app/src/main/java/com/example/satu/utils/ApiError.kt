@@ -1,5 +1,6 @@
 package com.example.satu.utils
 
+import com.example.common.Result
 import com.example.satu.data.model.response.ErrorResponse
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException

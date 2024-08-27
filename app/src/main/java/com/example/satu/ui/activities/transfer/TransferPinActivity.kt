@@ -9,26 +9,17 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.satu.R
-import com.example.satu.data.model.response.qris.DataQrisNih
 import com.example.satu.data.model.response.transfer.DataTransfer
-import com.example.satu.databinding.ActivityQrisVerificationBinding
 import com.example.satu.databinding.ActivityTransferPinBinding
 import com.example.satu.ui.activities.mutation.PinValidationResponse
 import com.example.satu.ui.activities.mutation.network.RetrofitClient
-import com.example.satu.ui.activities.qris.QrisReceiptActivity
-import com.example.satu.ui.factory.QrisViewModelfactory
 import com.example.satu.ui.factory.TransferViewModelfactory
-import com.example.satu.ui.viewmodel.QrisViewModel
 import com.example.satu.ui.viewmodel.TransferViewModel
 import com.example.satu.utils.ProgressDialogUtils
-import com.example.satu.utils.Result
 import com.example.satu.utils.SnackbarUtils
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
@@ -191,9 +182,9 @@ class TransferPinActivity : AppCompatActivity() {
                                             if (pin != null) {
                                                 viewModel.addTransfer(token, debitedRekeningNumber, targetRekeningNumber, amount, pin, note).observe(this@TransferPinActivity) { result ->
                                                     when (result) {
-                                                        is Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferPinActivity)
-                                                        is Result.Success -> result.data.data?.let { onLoginSuccess(it) }
-                                                        is Result.Error -> onLoginError(result.error)
+                                                        is com.example.common.Result.Loading -> ProgressDialogUtils.showProgressDialog(this@TransferPinActivity)
+                                                        is com.example.common.Result.Success -> result.data.data?.let { onLoginSuccess(it) }
+                                                        is com.example.common.Result.Error -> onLoginError(result.error)
                                                     }
                                                 }
                                             }
