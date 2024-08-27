@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299923191083",
+    "project_id": "satu-c5d90",
+    "storage_bucket": "satu-c5d90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299923191083:android:e4f9ccb5f35a61a6c9816e",
+        "android_client_info": {
+          "package_name": "com.example.satu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqBFvo4cYqlrqtVzNl-kYjjsPiHUfijjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
