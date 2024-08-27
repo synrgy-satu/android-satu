@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
             btnLihatSaldo.setOnClickListener {
                 isSaldoVisible = !isSaldoVisible
                 tvNominal.text = if (isSaldoVisible) nominalAsli else bintang
-                val iconResId = if (isSaldoVisible) R.drawable.ic_eye_lihat else R.drawable.ic_eye_lihat
+                val iconResId = if (isSaldoVisible) R.drawable.ic_eye_putih else R.drawable.ic_eye_slash_putih
                 btnLihatSaldo.setBackgroundResource(iconResId)
             }
 

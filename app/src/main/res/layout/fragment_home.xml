@@ -146,10 +146,10 @@
                     <ImageButton
                         android:layout_marginLeft="15dp"
                         android:id="@+id/btn_lihat_saldo"
-                        android:layout_width="18dp"
+                        android:layout_width="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="13dp"
-                        android:background="@drawable/ic_eye_lihat"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_eye_slash_putih"
                         android:contentDescription="Tombol icon untuk menutup dan membuka saldo anda"/>
 
                 </LinearLayout>
