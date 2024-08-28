@@ -98,7 +98,7 @@ Contributions to the SATU mobile app development are welcome. If you would like 
 | ----------------- | ------------------------------------------------------------------ |
 | Muhamad Yazid Imani | [Github](https://github.com/azidney)  |
 | Anggi Susanti | [Github](https://github.com/cnqqi) |
-| Kunti Najma | [Github](https://github.com/kuntinajma)  |
+| Kunti Najma Jalia | [Github](https://github.com/kuntinajma)  |
 
 
 
