@@ -51,7 +51,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginHorizontal="16dp"
         android:text="@string/tagline"
-        android:contentDescription="@string/tagline"
+        android:contentDescription="Ini adalah tagline Kelola Tabungan dan Keuangan Dalam SATU Portal"
         android:fontFamily="@font/opensans_bold"
         android:textColor="@color/white"
         android:textSize="16sp"
