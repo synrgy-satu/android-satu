@@ -28,6 +28,7 @@ Brand Values:
 - MVVM Architecture
 - Material Components
 - CameraX
+- ML Kit
 
 ## Third-part libaries
 
@@ -43,13 +44,6 @@ Retrofit is a type-safe HTTP client for Android and Java. It simplifies the proc
 The OkHttp Logging Interceptor logs HTTP request and response data, making it easier to debug and monitor network calls in your application.
 [Repo](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor)
 
-- Glide
-Glide is a fast and efficient open source media management and image loading framework for Android. It wraps media decoding, memory and disk caching, and resource pooling into a simple and easy-to-use interface.
-[Repo](https://github.com/bumptech/glide)
-
-- RoundedImageView
-RoundedImageView is a fast and flexible ImageView library for Android, allowing easy manipulation of images with rounded corners or circles.
-[Repo](https://github.com/vinc3m1/RoundedImageView)
 ## Getting Started
 To get started with the Satu mobile app, follow the instructions below.
 
@@ -115,8 +109,3 @@ Thanks to
 ## License
 
 Coming Soon
-
-
-## Disclaimer
-
-This project is created for educational purpose as the requirement to graduate from [SYNRGY ACADEMY BATCH 7](https://www.binaracademy.com/binarx/synrgyacademy)
